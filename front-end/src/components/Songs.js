@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import Song from "./Song";
 const API = process.env.REACT_APPP_API_URL;
 function Songs() {
   const [songs, setSongs] = useState([]);
