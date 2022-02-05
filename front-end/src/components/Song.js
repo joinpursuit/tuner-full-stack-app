@@ -1,6 +1,6 @@
 function Song({ song }) {
   return (
-    <tr>
+    <tr className="song">
       <td>
         {song.is_favorite ? (
           <span>⭐️</span>

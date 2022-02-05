@@ -13,7 +13,7 @@ function Songs() {
       .catch((e) => console.log(e));
   }, []);
   return (
-    <Table>
+    <Table className="songs">
       <thead>
         <tr>
           <th>Favorite</th>
