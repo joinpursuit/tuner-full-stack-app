@@ -7,6 +7,7 @@ import FourOFour from "./Pages/FourOFour";
 
 // compnents
 import NavBar from "./Components/NavBar";
+import Songs from "./Components/Songs";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="*" element={<FourOFour />} />
+						<Route path="/songs" element={<Songs />} />
 					</Routes>
 				</main>
 			</Router>
