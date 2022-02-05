@@ -1,25 +1,29 @@
 {
-  "name": "tuner-mono-repo",
+  "name": "tuner-api",
   "version": "1.0.0",
-  "description": "Starter code for student lab",
+  "description": "Let's make our own music playlist app!",
   "main": "server.js",
   "scripts": {
-    "db:init": "psql -U postgres -f db/schema.sql",
-    "db:seed": "psql -U postgres -f db/seed.sql",
-    "test": "jest --runInBand"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":  "node server.js",
+    "dbinit":"psql -U postgres -f ./db/schema.sql",
+    "dbseed": "psql -U postgres -f ./db/seed.sql"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joinpursuit/tuner-full-stack-app.git"
+    "url": "git+https://github.com/mukayilaalao/tuner-api.git"
   },
-  "author": "K. Rafalski",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joinpursuit/tuner-full-stack-app/issues"
+    "url": "https://github.com/mukayilaalao/tuner-api/issues"
   },
-  "homepage": "https://github.com/joinpursuit/tuner-full-stack-app#readme",
+  "homepage": "https://github.com/mukayilaalao/tuner-api#readme",
   "dependencies": {
-    "jest": "^27.4.7",
-    "supertest": "^6.2.0"
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "pg-promise": "^10.11.1"
   }
 }
