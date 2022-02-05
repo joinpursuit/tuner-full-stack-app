@@ -39,10 +39,10 @@ function SongDetails() {
 				<h3>
 					{true ? <span>⭐️</span> : null} {song.name}
 				</h3>
-				<h3> Name : {song.name} </h3>
-				<h3> Song : {song.artist} </h3>
-				<h3> Album : {song.album}</h3>
-				<h3> Time : {song.time}</h3>
+				<h3> Name: {song.name} </h3>
+				<h3> Song: {song.artist} </h3>
+				<h3> Album: {song.album}</h3>
+				<h3> Time: {song.time}</h3>
 			</div>
 
 			<div className="detailsButtton">

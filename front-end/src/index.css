@@ -11,6 +11,17 @@ nav {
 	box-shadow: 2px 2px 4px grey;
 	margin-bottom: 1em;
 }
+nav h1 a {
+	background-color: #352c2c;
+	color: white;
+}
+nav button {
+	background-color: #352c2c;
+}
+nav button a {
+	background-color: #352c2c;
+	color: white;
+}
 
 .homePage {
 	display: flex;
@@ -29,4 +40,53 @@ nav {
 }
 .detailsMain {
 	text-align: center;
+}
+
+/* form page  */
+
+.newForm {
+	text-align: center;
+	font-family: monospace;
+	animation: theform 0.3s ease-in;
+}
+@keyframes theform {
+	0% {
+		margin-left: -30px;
+		opacity: 0;
+	}
+	33% {
+		opacity: 0.3;
+	}
+	66% {
+		opacity: 0.6;
+	}
+}
+.newForm input {
+	font-size: 20px;
+	border: none;
+	margin: 20px;
+	width: 60%;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid black;
+	transition: 0.1s ease-in;
+	opacity: 0.8;
+	padding: 5px;
+	border-radius: 3px;
+}
+.newForm input:hover {
+	opacity: 0.3;
+}
+.newButton {
+	font-size: 20px;
+	margin: 30px;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+}
+.newButton a {
+	color: black;
+	text-decoration: none;
+}
+.newButton:hover {
+	opacity: 0.6;
 }

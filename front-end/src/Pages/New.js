@@ -3,7 +3,7 @@ import SongsNewForm from "../Components/SongsNewForm";
 
 function New() {
 	return (
-		<div>
+		<div className="detailsMain">
 			<h2>New</h2>
 			<SongsNewForm />
 		</div>
