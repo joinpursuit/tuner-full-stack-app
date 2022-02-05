@@ -1,20 +1,36 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Song from "./Song";
+import { Link } from "react-router-dom";
 
-const API = process.env.REACT_APP_API_URL;
-
-function Songs() {
-  const [songs, setSongs] = useState([]);
-
-  useEffect(() => {
-    axios.get( API + "/songs" )
-    .then((res)=>{
-      setSongs(res.data);
-    }).catch((err)=>{
-      console.log(err);
-    })
-  }, []);
+function Song({ song }) {
+  return (
+    <tr>
+      <td>
+        {song.is_favorite ? (
+          <span> ⭐️ </span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+      <td>
+        <Link to={`/songs/${song.id}`}
+        >⭐️</Link>
+      </td>
+      <td>
+        <Link to={`/songs/${song.id}`}>
+          {song.name}
+        </Link>
+      </td>
+      <td>
+        <Link to={`/songs/${song.id}`}>
+          {song.artist}
+        </Link>
+      </td>
+      <td>
+        <Link to={`/songs/${song.id}`}>
+          {song.time}
+        </Link>
+      </td>
+    </tr>
+  )
 }
 
-export default Songs;
+export default Song;
