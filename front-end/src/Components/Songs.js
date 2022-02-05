@@ -13,23 +13,10 @@ function Songs() {
 		});
 	}, []);
 	return (
-		<div>
-			<section>
-				<table>
-					<thead>
-						<tr>
-							<th></th>
-							<th>Take me there</th>
-							<th>See this Song</th>
-						</tr>
-					</thead>
-					<tbody>
-						{songs.map((song) => {
-							return <Song key={song.id} song={song} />;
-						})}
-					</tbody>
-				</table>
-			</section>
+		<div className="detailsMain">
+			{songs.map((song) => {
+				return <Song key={song.id} song={song} />;
+			})}
 		</div>
 	);
 }
