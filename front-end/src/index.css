@@ -1,0 +1,9 @@
+.Navbar a{
+    text-decoration: none;
+}
+.Navbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(69, 69, 129);
+}

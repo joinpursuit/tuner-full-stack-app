@@ -1,4 +1,4 @@
-function Songs() {
+function Song() {
     return (
       <div className="">
         <h1>Tuner Songs</h1>
@@ -6,5 +6,5 @@ function Songs() {
     );
   }
   
-  export default Songs;
+  export default Song;
   
