@@ -14,13 +14,26 @@ nav {
 nav h1 a {
 	background-color: #352c2c;
 	color: white;
+	transition: 0.3s ease-in;
+	text-decoration: none;
+	font-size: 50px;
+}
+nav h1 a:hover {
+	color: steelblue;
 }
 nav button {
 	background-color: #352c2c;
+	font-size: 30px;
+	transition: 0.3s ease-in;
 }
 nav button a {
 	background-color: #352c2c;
 	color: white;
+	transition: 0.3s ease-in;
+	text-decoration: none;
+}
+nav button:hover {
+	border: none;
 }
 
 .homePage {
@@ -30,6 +43,27 @@ nav button a {
 
 .h1Welcome {
 	font-size: 50px;
+}
+.indexName {
+	font-size: 30px;
+	margin: 50px;
+	text-align: center;
+}
+.songMap {
+	display: flex;
+	justify-content: center;
+}
+.songMap div {
+	font-size: 20px;
+}
+.songMapp {
+	display: flex;
+	justify-content: center;
+	text-decoration: underline;
+}
+.songMapp div {
+	margin: 50px;
+	font-size: 20px;
 }
 
 /* details  */

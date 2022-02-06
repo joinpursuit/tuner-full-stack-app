@@ -1,7 +1,7 @@
 import React from "react";
-import Song from "./Song";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -12,13 +12,21 @@ function Songs() {
 			setSongs(res.data);
 		});
 	}, []);
-	return (
-		<div className="detailsMain">
-			{songs.map((song) => {
-				return <Song key={song.id} song={song} />;
-			})}
-		</div>
-	);
+
+	let songMap = songs.map((song) => {
+		return (
+			<div className="songMap">
+				<div className="indexName">{song.name}</div>
+				<div className="indexName">{song.album}</div>
+				<div>
+					<Link className="indexName" to={`/songs/${song.id}`}>
+						✏️
+					</Link>
+				</div>
+			</div>
+		);
+	});
+	return <div className="detailsMain">{songMap}</div>;
 }
 
 export default Songs;
