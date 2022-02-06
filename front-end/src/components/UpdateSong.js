@@ -66,7 +66,7 @@ function UpdateSong() {
         value={song.time}
       />
       <hr />
-      <label for="is_favorite">Is Favorite</label>
+      <label for="is_favorite">Favorite</label>
       <input
         id="is_favorite"
         checked={song.is_favorite}
