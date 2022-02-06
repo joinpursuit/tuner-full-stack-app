@@ -18,7 +18,7 @@ function UpdateSong() {
       .get(`${API}/songs/${id}`)
       .then((response) => setSong(response.data))
       .catch((e) => console.log(e));
-  });
+  }, [id]);
 
   const handleChange = (e) => {
     if (e.target.id === "is_favorite")
@@ -34,29 +34,46 @@ function UpdateSong() {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
+      <label for="name">Song Name</label>
       <br />
-      <input id="name" type="text" onChange={handleChange} />
+      <input id="name" type="text" onChange={handleChange} value={song.name} />
       <hr />
-      <label htmlFor="artist">Artist</label>
+      <label for="artist">Artist</label>
       <br />
-      <input id="artist" type="text" onChange={handleChange} />
+      <input
+        id="artist"
+        type="text"
+        onChange={handleChange}
+        value={song.artist}
+      />
       <hr />
-      <label htmlFor="album">Album</label>
+      <label for="album">Album</label>
       <br />
-      <input id="album" type="text" onChange={handleChange} />
+      <input
+        id="album"
+        type="text"
+        onChange={handleChange}
+        value={song.album}
+      />
       <hr />
-      <label htmlFor="time">Time</label>
+      <label for="time">Time</label>
       <br />
-      <input id="time" type="time" onChange={handleChange} />
+      <input
+        id="time"
+        type="text"
+        onChange={handleChange}
+        placeholder="format: hh:mn:ss"
+        value={song.time}
+      />
       <hr />
-      <label htmlFor="is_favorite">Is Favorite</label>
+      <label for="is_favorite">Is Favorite</label>
       <input
         id="is_favorite"
         checked={song.is_favorite}
         type="checkbox"
-        onChange
+        onChange={handleChange}
       />
+      <hr />
       <input type="submit" />
     </form>
   );

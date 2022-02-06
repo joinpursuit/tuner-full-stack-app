@@ -2,7 +2,16 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   background-color: brown;
+  margin-bottom: 50px;
+  min-height: 50px;
 }
 .nav-bar button {
   grid-column: 3/4;
+  background-color: black;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  border-radius: 5px;
+}
+.nav-bar a {
+  text-decoration: none;
 }

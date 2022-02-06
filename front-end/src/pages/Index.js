@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Index() {
   return (
     <div>
-      <section>
+      <section className="index-header">
         <h2>Index</h2>
         <button>
           <Link to="/songs/new">New Song</Link>

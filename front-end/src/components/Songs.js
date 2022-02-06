@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { Table } from "react-bootstrap";
 import Song from "./Song";
+import "./Songs.css";
 const API = process.env.REACT_APP_API_URL;
 
 function Songs() {
