@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
-function NewSong() {
+function UpdateSong() {
   const [song, setSong] = useState({
     name: "",
     artist: "",
@@ -11,7 +11,15 @@ function NewSong() {
     time: "",
     is_favorite: false,
   });
+  const { id } = useParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get(`${API}/songs/${id}`)
+      .then((response) => setSong(response.data))
+      .catch((e) => console.log(e));
+  });
+
   const handleChange = (e) => {
     if (e.target.id === "is_favorite")
       setSong({ ...song, is_favorite: e.target.checked });
@@ -20,7 +28,7 @@ function NewSong() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${API}/songs`)
+      .put(`${API}/songs/${id}`, song)
       .then(() => navigate("/songs"))
       .catch((e) => console.log(e));
   };
@@ -54,4 +62,4 @@ function NewSong() {
   );
 }
 
-export default NewSong;
+export default UpdateSong;
