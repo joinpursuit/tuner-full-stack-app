@@ -2,6 +2,9 @@ const express = require('express');
 const db = require('../db/dbConfig.js');
 const songs = express.Router();
 const { getAllSongs, getSong, createSong, deleteSong, updateSong } = require("../queries/song.js")
+const albumsController = require("./albumsController.js");
+songs.use("/:songId/albums", albumsController);
+
 
 songs.get("/", async (req,res)=>{
     const allSongs = await getAllSongs();

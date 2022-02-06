@@ -27,6 +27,13 @@ function SongDetails() {
         })
     };
 
+    const handleAlbumBtn = () => {
+        axios.get(`${API}/songs/${id}/albums`)
+        .then(()=>{
+            
+        })
+    }
+
 
   return (
      <article>
@@ -46,12 +53,17 @@ function SongDetails() {
                 </Link>
             </div>
             <div>
-                <Link to={`/song/${song.id}/edit`}>
+                <Link to={`/songs/${song.id}/edit`}>
                     <button>Edit</button>
                 </Link>
             </div>
             <div>
                 <button onClick={handleDelete}>Delete</button>
+            </div>
+            <div>
+                <Link to={`/songs/${song.id}/albums`}>
+                <button>See Albums</button>
+                </Link>
             </div>
         </div>
      </article>
