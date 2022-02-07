@@ -11,8 +11,8 @@ function Song({ song }) {
         )}
       </td>
       <td>
-        <Link to={`/songs/${song.id}`}
-        >⭐️</Link>
+        {/* <Link to={`/songs/${song.id}`}
+        >⭐️</Link> */}
       </td>
       <td>
         <Link to={`/songs/${song.id}`}>
