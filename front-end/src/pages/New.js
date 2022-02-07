@@ -1,8 +1,11 @@
 import React from 'react';
+import SongNewForm from '../components/SongNewForm';
 
 function New() {
   return (
-      <div>New</div>
+      <div>
+        <SongNewForm/>
+      </div>
   );
 }
 

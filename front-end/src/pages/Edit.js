@@ -1,7 +1,11 @@
-import React from 'react';
+import SongEditForm from "../components/SongEditForm";
 
 function Edit() {
-  return <div></div>;
+  return (
+      <div>
+          <SongEditForm/>
+      </div>
+  );
 }
 
 export default Edit;
