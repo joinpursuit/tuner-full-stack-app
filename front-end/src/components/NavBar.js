@@ -4,8 +4,8 @@ function NavBar() {
     return (
       <div className="Navbar">
         <button><Link to="/"><h1>Tuner Navbar</h1></Link></button>
-        <button><Link to="/songs"><h1>Songs</h1></Link></button>
-        <button><Link to="/songs/new"><h1>New Song</h1></Link></button>
+        <button><h1><Link to="/songs">Songs</Link></h1></button>
+        <button><h1><Link to="/songs/new">New Song</Link></h1></button>
       </div>
     );
   }
