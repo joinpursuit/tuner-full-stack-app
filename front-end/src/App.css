@@ -1,0 +1,20 @@
+a:link {
+    text-decoration: none;
+}
+
+a:visited{
+    color: black;
+}
+
+a:hover {
+    color:lightgreen;
+}
+
+table {
+    width: 50%;
+    margin: auto;
+}
+
+td {
+    text-align: center;
+}
