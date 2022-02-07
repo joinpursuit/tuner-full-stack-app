@@ -4,7 +4,7 @@ function NavBar() {
   return (
     <section className="nav-bar">
       <button>
-        <Link to="/songs">TUNER </Link>
+        <Link to="/songs">Tuner </Link>
       </button>
     </section>
   );

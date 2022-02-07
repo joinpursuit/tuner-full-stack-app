@@ -12,7 +12,6 @@ const getAllSongs = async (order, favorite) => {
     } else if (favorite === "false") {
       songs = await db.any("SELECT * FROM songs WHERE is_favorite=FALSE");
     } else {
-      console.log("none");
       songs = await db.any("SELECT * FROM songs");
     }
     return songs;

@@ -17,11 +17,11 @@ function SongDetails() {
   const handleDelete = () => {
     axios
       .delete(`${API}/songs/${id}`)
-      .then(() => navigate("/songs"))
+      .then()
       .catch((e) => console.log(e));
   };
   return (
-    <section className="song-details">
+    <section className="Song-Details">
       <h3>
         {song.is_favorite ? <span>⭐️</span> : ""} {song.name} - By{" "}
         {song.artist}
@@ -35,7 +35,9 @@ function SongDetails() {
         <button>
           <Link to={`/songs/${id}/edit`}>Edit</Link>
         </button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}>
+          <Link to="/songs">Delete</Link>
+        </button>
       </div>
     </section>
   );

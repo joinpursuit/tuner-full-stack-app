@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Song({ song }) {
   return (
-    <tr className="song">
+    <tr className="Song">
       <td>
         {song.is_favorite ? (
           <span>⭐️</span>

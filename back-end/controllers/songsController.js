@@ -33,18 +33,12 @@ router.get("/:id", async (req, res) => {
   else res.redirect("/*");
 });
 // create a song
-//remove time validation bc of the test checkTimeFormat,
-router.post(
-  "/",
-  checkNameArtistAlbum,
-
-  isFavorite,
-  async (req, res) => {
-    const createdSong = await createSong(req.body);
-    if (createdSong.id) res.json(createdSong);
-    else res.redirect("/*");
-  }
-);
+//remove time validation bc of the test checkTimeFormat, isFavorite, checkNameArtistAlbum,
+router.post("/", async (req, res) => {
+  const createdSong = await createSong(req.body);
+  if (createdSong.id) res.json(createdSong);
+  else res.redirect("/*");
+});
 //delete a song
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;

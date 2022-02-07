@@ -26,14 +26,14 @@ function NewSong() {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label for="Song Name">Name</label>
+      <label for="name">Song Name</label>
       <br />
       <input
         id="name"
         type="text"
         onChange={handleChange}
         value={song.name}
-        require
+        required
       />
       <hr />
       <label for="artist">Artist</label>
@@ -43,7 +43,7 @@ function NewSong() {
         type="text"
         onChange={handleChange}
         value={song.artist}
-        require
+        required
       />
       <hr />
       <label for="album">Album</label>
@@ -65,7 +65,7 @@ function NewSong() {
         value={song.time}
       />
       <hr />
-      <label for="is_favorite">Is Favorite</label>
+      <label for="is_favorite">Favorite</label>
       <input
         id="is_favorite"
         checked={song.is_favorite}

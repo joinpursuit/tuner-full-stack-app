@@ -8,5 +8,5 @@ id SERIAL PRIMARY KEY,
 name VARCHAR(50),
 artist VARCHAR(50),
 album VARCHAR(50),
-time VARCHAR(10),
+time VARCHAR(5),
 is_favorite BOOLEAN);
