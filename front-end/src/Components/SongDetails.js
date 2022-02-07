@@ -17,7 +17,7 @@ function SongDetails() {
       }).catch((err)=>{
         console.log(err);
       })
-  }, [id, API]);
+  }, [id]);
 
   const handleDelete=()=>{
     axios.delete(API + "/songs/" + id)
@@ -47,7 +47,7 @@ function SongDetails() {
         </Link>
       </div>
       <div>
-        <button onClick={handleDelete}>DELETE</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
     <Reviews />

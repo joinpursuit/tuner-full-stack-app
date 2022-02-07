@@ -14,7 +14,7 @@ function Reviews() {
     axios.get(`${API}/songs/${id}/reviews`).then((response) => {
       setReviews(response.data);
     });
-  }, [id, API]);
+  }, [id]);
 
   const handleAdd = (newReview) => {
     axios

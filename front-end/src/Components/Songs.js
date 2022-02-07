@@ -22,7 +22,7 @@ function Songs() {
         <table>
           <thead>
             <tr>
-              <th></th>
+              {/* <th></th> */}
               <td>Fav</td>
               <td>Song</td>
               <td>Arist</td>

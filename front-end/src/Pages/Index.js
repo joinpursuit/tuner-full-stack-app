@@ -6,7 +6,7 @@ function Index() {
     <div className="Index">
       <h2>Index</h2>
       <button>
-        <Link to="/songs/new">NEW SONG</Link>
+        <Link to="/songs/new">New Song</Link>
       </button>
       <Songs />
     </div>
