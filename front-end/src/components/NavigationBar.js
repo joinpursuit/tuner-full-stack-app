@@ -23,7 +23,7 @@ function NavigationBar() {
 
     
     return (
-        <AppBar position="static">
+        <AppBar position="static" color="success">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

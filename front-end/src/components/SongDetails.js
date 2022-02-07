@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 
 function SongDetails() {
@@ -41,16 +42,21 @@ function SongDetails() {
                 <h5>Album: {song.album}</h5>
                 <h5>Song Length: {song.time}</h5>
                 <div>
-                    <Stack direction="row" spacing={2}>
+                    <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem />}
+                        justifyContent="center"
+                        alignItems="center" spacing={2}
+                    >
                         <Link to={`/songs`}>
-                            <Button variant="outlined" color="primary">Back</Button>
+                            <Button variant="contained" color="primary">Back</Button>
                         </Link>
                         <Link to={`/songs/${id}/edit`}>
                             <Button variant="contained" color="success">
                                 Edit
                             </Button>
                         </Link>
-                        <Button onClick={handleDelete} variant="outlined" color="error">
+                        <Button onClick={handleDelete} variant="contained" color="error">
                             Delete
                         </Button>
                     </Stack>

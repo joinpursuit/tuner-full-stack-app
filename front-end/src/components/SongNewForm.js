@@ -87,16 +87,18 @@ function SongNewForm() {
                     <FormControlLabel 
                         control={
                             <Checkbox 
-                                onChange={handleCheckboxChange} 
-                                label="favorite" 
-                                icon={<FavoriteBorder />} 
-                                checkedIcon={<Favorite />} 
-                            />
-                        } 
+                                id="is_favorite"
+                                onChange={handleCheckboxChange}
+                                label="favorite"
+                                icon={<FavoriteBorder />}
+                                checkedIcon={<Favorite />}
+                                />
+                            } 
                         label="Favorite?" 
+                        labelPlacement="top"
                     />
                 </FormGroup>
-                <Button variant="outlined" type="submit">Submit</Button>
+                <Button variant="contained" type="submit">Submit</Button>
             </Box>
         </div>
     )
