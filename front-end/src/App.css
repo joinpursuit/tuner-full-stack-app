@@ -1,5 +1,4 @@
 * {
-    text-align: center;
     font-family: Roboto;
 }
 
@@ -28,6 +27,6 @@ button {
     text-align: center;
 }
 
-.song-new-form, #is_favorite {
+h1, .song-details, .song-new-form, #is_favorite, .song-edit-form {
     text-align: center;
 }

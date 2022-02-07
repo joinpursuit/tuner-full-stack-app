@@ -21,7 +21,6 @@ function NavigationBar() {
     setAnchorElNav(null);
     };
 
-    
     return (
         <AppBar position="static" color="success">
             <Container maxWidth="xl">

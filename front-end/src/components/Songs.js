@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Song from "./Song";
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 
 function Songs() {
     const [ songs, setSongs ] = useState([]);
@@ -16,8 +18,33 @@ function Songs() {
             })
     }, [API]);
 
+    const columns = [
+        { field: 'is_favorite', headerName: 'Fave', width: 130 },
+        { field: 'name', headerName: 'Song', width: 130 },
+        { field: 'artist', headerName: 'Artist', width: 130 },
+        { field: 'album', headerName: 'Album', width: 130 },
+        // { field: 'lastName', headerName: 'time', width: 130 },
+        {
+            field: 'time',
+            headerName: 'Time',
+            type: 'number',
+            width: 70,
+        },
+        { field: 'See Details', headerName: 'Album', width: 130 },
+      ];
+
     return (
         <div className="songs">
+            {/* <div style={{ height: 400, width: '100%' }}>
+                <DataGrid
+                    rows={songs}
+                    columns={columns}
+                    pageSize={10}
+                    rowsPerPageOptions={[10]}
+                    // BooleanCellTrueIcon={true}
+                />
+            </div> */}
+
             <section>
                 <table>
                     <thead>

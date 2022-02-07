@@ -94,7 +94,7 @@ function SongNewForm() {
                                 checkedIcon={<Favorite />}
                                 />
                             } 
-                        label="Favorite?" 
+                        label="Favorite" 
                         labelPlacement="top"
                     />
                 </FormGroup>
