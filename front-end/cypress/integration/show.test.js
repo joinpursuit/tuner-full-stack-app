@@ -3,7 +3,7 @@ const API = Cypress.env("API");
 
 describe("Show Page", () => {
   before(() => {
-    cy.visit(`${URL}/songs/${1}`);
+    cy.visit(`${URL}/songs/${17}`);
   });
 
   it("shows the header text", () => {
