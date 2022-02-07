@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Reviews from "./Reviews";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -29,12 +28,17 @@ function SongDetails() {
   }
 
   return <article>
-    <h3>{true ? <span>⭐️</span> : null} { song.name }&nbsp;- By {song.artist}</h3>
-    {/* <h5> 
-      <span>{song.name}</span>
-    </h5> */}
-    <h4>{ song.album }</h4>
-    <p>Time:&nbsp;{ song.time }</p>
+    <div id="Song">
+      <h3>{true ? <span>⭐️</span> : null} { song.name }&nbsp;- By {song.artist}</h3>
+      <br />
+      {/* <h5> 
+        <span>{song.name}</span>
+      </h5> */}
+      <h4>{ song.album }</h4>
+      <br />
+      <p>Time:&nbsp;{ song.time }</p>
+    </div>
+    <br />
     <div className="showNavigation">
       <div>
         <Link to={`/songs`}>
@@ -50,7 +54,6 @@ function SongDetails() {
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
-    <Reviews />
   </article>
 }
 

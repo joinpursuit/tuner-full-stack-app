@@ -21,7 +21,7 @@ function Songs() {
       <section>
         <table>
           <thead>
-            <tr>
+            <tr id="tr">
               {/* <th></th> */}
               <td>Fav</td>
               <td>Song</td>
@@ -29,7 +29,7 @@ function Songs() {
               <td>Time</td>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="tbody">
             {songs.map((song) => {
               return <Song key={song.id} song={song} />
             })}
