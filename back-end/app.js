@@ -9,7 +9,7 @@ app.use(cors());
 
 //routes HOME
 app.get("/", (req, res) => {
-  res.send("WELCOME TO TUNER");
+  res.send("Welcome To Tuner");
 });
 //ROUTES
 app.use("/songs", router);

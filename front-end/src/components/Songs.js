@@ -15,7 +15,7 @@ function Songs() {
       .catch((e) => console.log(e));
   }, []);
   return (
-    <Table className="Songs">
+    <Table striped bordered hover className="Songs">
       <thead>
         <tr>
           <th>Favorite</th>
