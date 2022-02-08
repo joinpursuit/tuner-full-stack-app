@@ -25,7 +25,7 @@ function NavigationBar() {
         <AppBar position="static" color="success">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                     <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -51,7 +51,7 @@ function NavigationBar() {
                     open={Boolean(anchorElNav)}
                     onClose={handleCloseNavMenu}
                     sx={{
-                        display: { xs: 'block', md: 'none' },
+                        display: { xs: 'block', md: 'block' },
                     }}
                     >
                     <Link to="/songs">
@@ -68,10 +68,10 @@ function NavigationBar() {
                 </Box>
                 
                     <Typography
-                        variant="h6"
+                        variant="h3"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}
                     >
                         <Link to="/" >Tuner App</Link>
                     </Typography>
