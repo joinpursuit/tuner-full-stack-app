@@ -50,13 +50,15 @@ button a {
 }
 
 .Songs tr td {
-  height: 50px;
+  height: 55px;
   /* border: 0px solid white; */
-  box-shadow: 6px 4px 4px gray;
+  /* box-shadow: 6px 5px 5px gray; */
+  border-bottom: 1px solid rgb(254, 200, 211);
 }
 
 .tbody a {
   color: rgb(254, 200, 211);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h4 {
@@ -68,6 +70,7 @@ h4 {
 table {
   width: 50%;
   margin: auto;
+  border-collapse: collapse;
 }
 
 td {
@@ -82,11 +85,15 @@ tbody td:not(td:first-of-type):hover {
 tbody tr:nth-child(even) {
   background: rgb(209, 23, 73);
   color: rgb(254, 200, 211);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-small;
 }
 
 tbody tr:nth-child(odd) {
   background-color: rgb(172, 19, 59);
   color: rgb(254, 200, 211);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-small;
 }
 
 .Songs {
@@ -131,22 +138,10 @@ input[type="submit"] {
   text-align: center;
 } */
 
-.Reviews {
-  background-color: whitesmoke;
-  padding: 1em;
-  box-shadow: 2px 2px 4px silver;
-}
-
-.Reviews > div {
-  padding: 1em;
-  box-shadow: 0px 0px 2px silver;
-  background-color: ghostwhite;
-}
-.Reviews div:nth-child(odd) {
-  background-color: aliceblue;
-}
 
 #tr {
   background-color: rgb(172, 19, 59);
   color:rgb(255, 179, 192);
+  font-size: x-small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
