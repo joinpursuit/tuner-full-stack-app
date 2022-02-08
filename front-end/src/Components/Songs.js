@@ -19,7 +19,7 @@ function Songs() {
   return (
     <div className="Songs">
       <section>
-        <table>
+        <table className="table">
           <thead>
             <tr id="tr">
               {/* <th></th> */}

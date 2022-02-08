@@ -56,7 +56,7 @@ button a {
 }
 
 .tbody a {
-  color: white;
+  color: rgb(254, 200, 211);
 }
 
 h4 {
@@ -81,12 +81,16 @@ tbody td:not(td:first-of-type):hover {
 
 tbody tr:nth-child(even) {
   background: rgb(209, 23, 73);
-  color: white;
+  color: rgb(254, 200, 211);
 }
 
 tbody tr:nth-child(odd) {
   background-color: rgb(172, 19, 59);
-  color: white;
+  color: rgb(254, 200, 211);
+}
+
+.Songs {
+  margin-bottom: 200px;
 }
 
 .New {
@@ -144,5 +148,5 @@ input[type="submit"] {
 
 #tr {
   background-color: rgb(172, 19, 59);
-  color: white;
+  color:rgb(255, 179, 192);
 }
