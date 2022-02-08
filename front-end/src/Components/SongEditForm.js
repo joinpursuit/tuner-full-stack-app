@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-function SongNewForm() {
+function SongEditForm() {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -18,13 +18,11 @@ function SongNewForm() {
   });
 
   const updateSong = (updatedSong) => {
-    axios
-      .post(`${API_URL}/songs/${id}`, updatedSong)
+    axios.put(`${API_URL}/songs/${id}`, updatedSong)
       .then(() => {
-        navigate(`/songs`);
-      })
-      .catch((err) => {
-        return err;
+        navigate(`/songs/${id}`);
+      }).catch((err) => {
+        console.log(err);
       });
   };
 
@@ -35,6 +33,14 @@ function SongNewForm() {
   const handleCheckboxChange = () => {
     setSong({ ...song, is_favorite: !song.is_favorite });
   };
+
+  useEffect(() => {
+    axios.get(`${API_URL}/songs/${id}`)
+    .then(
+      (res) => setSong(res.data),
+      (err) => navigate(`/not-found`)
+    );
+  }, [id, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -93,12 +99,13 @@ function SongNewForm() {
         />
 
         <br />
-        <Link to={`/bookmarks/${id}`}>
-          <button>Nevermind!</button>
-        </Link>
+        <input type="submit" />
       </form>
+      <Link to={`/songs/${id}`}>
+        <button>Nevermind!</button>
+      </Link>
     </div>
   );
 }
 
-export default SongNewForm;
+export default SongEditForm;
