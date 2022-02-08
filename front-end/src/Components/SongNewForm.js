@@ -15,6 +15,12 @@ function SongNewForm() {
         time: "",
     })
 
+    const addSong = (newSong) => {
+      axios.post(`${API}/songs`, newSong)
+      .then((res) => navigate(`/songs`))
+      .catch((err) => console.log(err));
+    }
+
     const handleTextChange = (e) => {
         setSong({ ...song, [e.target.id]: e.target.value });
     };
@@ -23,18 +29,16 @@ function SongNewForm() {
         setSong({ ...song, is_favorite: !song.is_favorite });
     };
 
-    const handleSubmit = (e, newSong) => {
-        e.preventDefault();
-        axios.post(`${API}/songs`, newSong)
-        .then((res) => navigate(`/songs`))
-        .catch((err) => console.log(err));
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      addSong(song);
     }
 
 
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Song Name</label>
         <input
           id="name"
           value={song.name}
@@ -43,7 +47,7 @@ function SongNewForm() {
           placeholder="Name of Song"
           required
         />
-        <label htmlFor="artist">Artist:</label>
+        <label htmlFor="artist">Artist</label>
         <input
           id="artist"
           type="text"
@@ -52,7 +56,7 @@ function SongNewForm() {
           placeholder="Artist Name"
           onChange={handleTextChange}
         />
-        <label htmlFor="album">Album:</label>
+        <label htmlFor="album">Album</label>
         <input
           id="album"
           type="text"
@@ -61,14 +65,7 @@ function SongNewForm() {
           placeholder="Name of Album"
           onChange={handleTextChange}
         />
-        <label htmlFor="is_favorite">Favorite:</label>
-        <input
-          id="is_favorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={song.is_favorite}
-        />
-        <label htmlFor="time">Time:</label>
+        <label htmlFor="time">Time</label>
         <input
           id="time"
           type="text"
@@ -76,6 +73,13 @@ function SongNewForm() {
           value={song.time}
           placeholder="Duration of Song"
           onChange={handleTextChange}
+        />
+        <label htmlFor="is_favorite">Favorite</label>
+        <input
+          id="is_favorite"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+          checked={song.is_favorite}
         />
 
         <br />

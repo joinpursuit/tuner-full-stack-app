@@ -11,9 +11,9 @@ function Reviews() {
     let { id } = useParams();
 
     useEffect(() => {
-        axios.get(`${API}/songs/${id}/reviews`)
-            .then((res) => setReviews(res.data))
-            .catch((err) => console.log(err));
+      axios.get(`${API}/songs/${id}/reviews`)
+        .then((res) => setReviews(res.data))
+        .catch((err) => console.log(err));
     }, [id]);
 
     const handleAdd = (newReview) => {

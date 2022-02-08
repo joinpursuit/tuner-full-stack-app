@@ -18,9 +18,10 @@ function Songs() {
             <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>Take me there</th>
-                        <th>See this Song</th>
+                        <th>Fav</th>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>

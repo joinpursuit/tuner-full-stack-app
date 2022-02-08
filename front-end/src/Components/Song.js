@@ -2,19 +2,22 @@ import { Link } from 'react-router-dom';
 
 function Song({ song }) {
   return (
-    <tr>
-        <td>
+    <tr className='Song'>
+        <td className='Songs'>
             {song.is_favorite ? (
-                <span>🎶</span>
+                <span>⭐️</span>
             ) : (
                 <span>🗑</span>
             )}
         </td>
-        <td>
-            {song.name}
+        <td className='Songs'>
+            <Link to={`/songs/${song.id}`}>{song.name}</Link>
         </td>
-        <td>
-            <Link to={`/songs/${song.id}`}>🎧</Link>
+        <td className='Songs'>
+            {song.artist}
+        </td>
+        <td className='Songs'>
+            {song.time}
         </td>
     </tr>
   );
