@@ -1,5 +1,6 @@
 import ReviewForm from "./ReviewForm";
 import { useState } from "react";
+import { Button, Comment, Header, Rating, Segment } from "semantic-ui-react";
 
 function Review({ review, handleDelete, handleSubmit }){
     const [viewEditForm, setViewEditForm] = useState(false);
@@ -9,8 +10,7 @@ function Review({ review, handleDelete, handleSubmit }){
     };
 
     return (
-    <div className="Review">
-      <button onClick={toggleView}>edit this review</button>
+    <Segment inverted color="green" className="Review">
       {viewEditForm ? (
         <ReviewForm 
             reviewDetails={review} 
@@ -18,17 +18,28 @@ function Review({ review, handleDelete, handleSubmit }){
             handleSubmit={handleSubmit} 
         />
        ) : (
-         <div>
-            <h4>
-                {review.title} <span>{review.rating}</span>
-            </h4>
-            <h5>{review.reviewer}</h5>
-            <p>{review.content}</p>
-         </div>
+        <Comment.Group size='massive'>
+          <Header as='h3' Segmentiding>
+          {review.title}
+          </Header>
+    
+          <Comment>
+            <Comment.Content>
+              <Comment.Author as='a'>{review.reviewer}</Comment.Author>
+              <Comment.Metadata>
+                <Rating maxRating={5} defaultRating={review.rating} icon="star" size="huge" />
+              </Comment.Metadata>
+              <Comment.Text>{review.content}</Comment.Text>
+              <Comment.Actions>
+                <Button color="grey" onClick={toggleView}>Edit This Review</Button>
+                <Button color="black" onClick={() => handleDelete(review.id)}>Delete</Button>
+              </Comment.Actions>
+              <br />
+            </Comment.Content>
+          </Comment>
+        </Comment.Group>
        )}
-
-      <button onClick={() => handleDelete(review.id)}>delete</button>
-    </div>
+    </Segment>
   );
 }
 

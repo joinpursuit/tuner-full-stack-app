@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { Button, Form, Segment, Input } from 'semantic-ui-react'
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -16,6 +17,12 @@ function SongEditForm() {
     time: "",
   });
 
+  const updateSong = (updatedSong) => {
+    axios.put(`${API}/songs/${id}`, updatedSong)
+      .then((res) => navigate(`/songs/${id}`))
+      .catch((err) => console.log(err));
+  }
+
   const handleTextChange = (e) => {
     setSong({ ...song, [e.target.id]: e.target.value });
   };
@@ -30,68 +37,67 @@ function SongEditForm() {
       .catch((err) => navigate(`/not-found`));
   }, [id, navigate]);
 
-  const handleSubmit = (e, updatedSong) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${API}/songs/${id}`, updatedSong)
-      .then((res) => navigate(`/songs/${id}`))
-      .catch((err) => console.log(err));
+    updateSong(song, id);
   };
 
   return (
-    <div className="Edit">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          value={song.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Song"
-          required
-        />
-        <label htmlFor="artist">Artist:</label>
-        <input
-          id="artist"
-          type="text"
-          required
-          value={song.artist}
-          placeholder="Artist Name"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="album">Album:</label>
-        <input
-          id="album"
-          type="text"
-          name="album"
-          value={song.album}
-          placeholder="Name of Album"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="is_favorite">Favorite:</label>
-        <input
+    <Segment inverted className="Edit">
+      <Form inverted onSubmit={handleSubmit}>
+        <Form.Group widths="equal">
+          <Form.Field 
+            id="name"
+            value={song.name}
+            control={Input}
+            label="Name"
+            onChange={handleTextChange}
+            placeholder="Artist Name"
+            required
+          />
+          <Form.Field 
+            id="artist"
+            value={song.artist}
+            control={Input}
+            label="Artist"
+            onChange={handleTextChange}
+            placeholder='Name of Song'
+            required
+          />
+        </Form.Group>
+        <Form.Group widths="equal">
+          <Form.Field 
+            id="album"
+            value={song.album}
+            control={Input}
+            label="Album"
+            onChange={handleTextChange}
+            placeholder='Name of Album'
+            required
+          />
+          <Form.Field 
+            id="time"
+            value={song.time}
+            control={Input}
+            name="time"
+            label="Time"
+            onChange={handleTextChange}
+            placeholder='Duration of Song'
+            required
+          />
+        </Form.Group>
+        <Form.Checkbox 
           id="is_favorite"
-          type="checkbox"
+          label="Favorite"
           onChange={handleCheckboxChange}
-          checked={song.is_favorite}
+          required
         />
-        <label htmlFor="time">Time:</label>
-        <input
-          id="time"
-          type="text"
-          name="time"
-          value={song.time}
-          placeholder="Duration of Song"
-          onChange={handleTextChange}
-        />
-
         <br />
 
-        <input type="submit" />
-      </form>
-      <Link to={`/songs/${id}`}>
-        <button>Nevermind!</button>
-      </Link>
-    </div>
+        <Button inverted color="green" type="submit">Submit</Button>
+        <Button inverted color="grey" as={Link} to={`/songs/${id}`}>Nevermind!</Button>
+      </Form>
+    </Segment>
   );
 }
 

@@ -1,25 +1,26 @@
 import { Link } from 'react-router-dom';
+import { Table } from "semantic-ui-react";
 
 function Song({ song }) {
   return (
-    <tr className='Song'>
-        <td className='Songs'>
+    <Table.Row className='Song'>
+        <Table.Cell className='Songs'>
             {song.is_favorite ? (
                 <span>⭐️</span>
             ) : (
                 <span>🗑</span>
             )}
-        </td>
-        <td className='Songs'>
+        </Table.Cell>
+        <Table.Cell className='Songs'>
             <Link to={`/songs/${song.id}`}>{song.name}</Link>
-        </td>
-        <td className='Songs'>
+        </Table.Cell>
+        <Table.Cell className='Songs'>
             {song.artist}
-        </td>
-        <td className='Songs'>
+        </Table.Cell>
+        <Table.Cell className='Songs'>
             {song.time}
-        </td>
-    </tr>
+        </Table.Cell>
+    </Table.Row>
   );
 }
 

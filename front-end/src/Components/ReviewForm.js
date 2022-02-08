@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Button, Form, Segment } from 'semantic-ui-react'
 
 function ReviewForm(props) {
     let { id } = useParams;
@@ -38,52 +39,59 @@ function ReviewForm(props) {
     };
 
   return (
-    <div className="Edit">
+    <Segment inverted className="Edit">
       {props.children}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="reviewer">Name:</label>
-        <input
-          id="reviewer"
-          value={review.reviewer}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Your name"
-          required
-        />
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          required
-          value={review.title}
-          onChange={handleTextChange}
-        />
-        <label htmlFor="rating">Rating:</label>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-        />
-        <label htmlFor="content">Review:</label>
-        <textarea
+      <Form inverted onSubmit={handleSubmit}>
+        <Form.Group widths="equal">
+          <Form.Input
+            fluid label="Title"
+            id="title"
+            type="text"
+            required
+            value={review.title}
+            width={8}
+            placeholder="Add a Title"
+            onChange={handleTextChange}
+          />
+          <Form.Input
+            fluid label="Name"
+            id="reviewer"
+            value={review.reviewer}
+            type="text"
+            width={8}
+            onChange={handleTextChange}
+            placeholder="Your Name"
+            required
+          />
+          <Form.Input
+            fluid label="Rating"
+            id="rating"
+            type="number"
+            name="rating"
+            min="0"
+            max="5"
+            step="1"
+            value={review.rating}
+            onChange={handleTextChange}
+            placeholder="0"
+            width={2}
+            required
+          />
+        </Form.Group>
+        <Form.Input
+          fluid label="Review"
           id="content"
           type="text"
           name="content"
           value={review.content}
           placeholder="What do you think..."
           onChange={handleTextChange}
-        />
-
+          required
+          />
         <br />
-
-        <input type="submit" />
-      </form>
-    </div>
+        <Button color="green" type="submit">Submit</Button>
+      </Form>
+    </Segment>
   );
 }
 

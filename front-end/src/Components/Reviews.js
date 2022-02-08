@@ -23,7 +23,7 @@ function Reviews() {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`${API}/songs/${id}/songs/${id}`)
+        axios.delete(`${API}/songs/${id}/reviews/${id}`)
             .then((res) => {
                 const copyReviewArray = [...reviews];
                 const indexDeletedReview = copyReviewArray.findIndex((review) => {
@@ -47,6 +47,17 @@ function Reviews() {
             })
             .catch((err) => console.log(err))
     };
+
+    // let filterReviews = reviews
+    //   .filter(review => review.song_id === Number(id))
+    //   .map(review => (
+    //     <Review 
+    //     key={review.id}
+    //     review={review}
+    //     handleSubmit={handleEdit}
+    //     handleDelete={handleDelete}
+    //     />
+    //   ))
 
   return (
     <section className="Reviews">
