@@ -25,7 +25,7 @@ function Songs() {
               {/* <th></th> */}
               <td>Fav</td>
               <td>Song</td>
-              <td>Arist</td>
+              <td>Artist</td>
               <td>Time</td>
             </tr>
           </thead>

@@ -16,7 +16,7 @@ function SongDetails() {
       }).catch((err)=>{
         console.log(err);
       })
-  }, [id]);
+  }, [id, API]);
 
   const handleDelete=()=>{
     axios.delete(API + "/songs/" + id)
@@ -28,7 +28,7 @@ function SongDetails() {
   }
 
   return <article>
-    <div id="Song">
+    <div id="Song" className="Song-Details">
       <h3>{true ? <span>⭐️</span> : null} { song.name }&nbsp;- By {song.artist}</h3>
       <br />
       {/* <h5> 

@@ -1,7 +1,7 @@
 const express = require("express");
 const songs = express.Router();
 const { getAllSongs, getSong, createSong, deleteSong, updateSong } = require("../queries/songs.js");
-const { checkName, checkFavorite } = require("../validations/checkSongs.js")
+const { checkName, checkFavorite } = require("../validations/checkSongs.js") 
 
 // INDEX
 songs.get("/", async (req, res) => {

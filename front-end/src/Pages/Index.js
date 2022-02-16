@@ -8,7 +8,7 @@ function Index() {
       <button>
         <Link to="/songs/new">New Song</Link>
       </button>
-      <Songs />
+      <Songs /> 
     </div>
   );
 }
