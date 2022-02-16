@@ -8,4 +8,4 @@ INSERT INTO songs (name, artist, album, time, is_favorite) VALUES
 ('Books about UFOs', 'Hüsker Dü', 'The Living End', '2:49', TRUE),
 ('Too Many Colors', 'Twin Shadow', 'Caer', '3:47', TRUE ),
 ('We Got the World', 'Icona Pop', 'Icona Pop', '3:17', FALSE),
-('Fame', 'David Bowie', 'Young Americans', '4:12', TRUE)
+('Fame', 'David Bowie', 'Young Americans', '4:12', TRUE);
