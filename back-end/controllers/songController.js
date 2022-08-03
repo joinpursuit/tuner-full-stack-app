@@ -3,8 +3,8 @@
 const express = require('express');
 const songs = express.Router();
 const { getAllSongs } = require('../queries/songs');
-// Extends our app so that we can create a new route for our SONGS resource
-// we need to make this ASYNC as well
+
+// INDEX
 songs.get('/', async (req, res) => {
 	const allSongs = await getAllSongs();
 	if (allSongs[0]) {
@@ -16,5 +16,5 @@ songs.get('/', async (req, res) => {
 	}
 });
 
+// EXPORT
 module.exports = songs;
-// EXPORT our Songs Router

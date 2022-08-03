@@ -1,7 +1,6 @@
 \c songs_dev;
 
-	INSERT INTO songs ( name, artist, album, year, time, is_favorite ) 
-	VALUES
+	INSERT INTO songs ( name, artist, album, year, time, is_favorite ) VALUES
 	('Three Little Birds', 'Bob Marley & The Wailers', 'Three Little Birds', 1977, 180, true),
 	('What''s Going On', 'Marvin Gaye', 'What''s Going On', 1971, 233, true),
 	('Rapper''s Delight', 'The Sugarhill Gang', 'Sugarhill Gang', 1979, 875, true),
