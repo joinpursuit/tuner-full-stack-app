@@ -12,14 +12,18 @@
     "type": "git",
     "url": "git+https://github.com/joinpursuit/tuner-full-stack-app.git"
   },
-  "author": "K. Rafalski",
+  "author": "Michael Kleemoff",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joinpursuit/tuner-full-stack-app/issues"
   },
   "homepage": "https://github.com/joinpursuit/tuner-full-stack-app#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "jest": "^27.4.7",
+    "pg-promise": "^10.11.1",
     "supertest": "^6.2.0"
   }
 }
