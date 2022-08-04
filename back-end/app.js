@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-const songController = require("./controllers/songController/js");
+const songController = require("./controllers/songController.js");
 // MIDDLEWARE - What happens between the REQ but BEFORE it hits a route. After the REQ but before the ROUTE
 app.use("/songs", songController);
 
