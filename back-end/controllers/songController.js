@@ -1,5 +1,5 @@
 const express = require("express");
-// const { errors } = require("pg-promise");
+const { errors } = require("pg-promise");
 const songs = express.Router();
 const { getAllSongs, getSong, createSong } = require("../queries/songs.js");
 const { checkName, checkBoolean } = require("../validations/checkSongs.js");
