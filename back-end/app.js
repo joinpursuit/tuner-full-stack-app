@@ -16,4 +16,8 @@ app.get("/", (req, res) => {
   res.send("This is Tuner. Welcome.");
 });
 
+app.get("*", (req, res) => {
+    res.status(404).send("There's no music for you, here!")
+})
+
 module.exports = app;
