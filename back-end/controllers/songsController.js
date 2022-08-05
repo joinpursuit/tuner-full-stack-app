@@ -7,7 +7,11 @@ const {
   deleteSong,
 } = require("../queries/songs");
 
-const { checkBool, checkName } = require("../validations/checkSongs")
+const {
+  checkBool,
+  checkName,
+  checkArtist,
+} = require("../validations/checkSongs");
 
 //Index
 songs.get("/", async (req, res) => {
@@ -30,7 +34,7 @@ songs.get("/:id", async (req, res) => {
     res.status(404).json({ error: "not found" });
   }
 });
-songs.post("/", checkName, checkBool, async (req, res) => {
+songs.post("/", checkName, checkBool, checkArtist, async (req, res) => {
   try {
     const song = await createSong(req.body);
     res.json(song);
@@ -42,12 +46,19 @@ songs.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const song = await deleteSong(id);
-    res.status(200).send("Song successfully delete or not found");
+    if (song.name !== "QueryResultError") {
+      // Like most things I end up making, this feels gross. If so, how could this check be improved?
+      res.status(200).send(song);
+      // This was super annoying, and required a lot of fiddling to get the test to actually pass. Ultimately - the response it's looking at is a big mess of nonsense in an object, with one of the fields being 'text'. The 'text' field should be the row that is returned from our query, and the test is looking for the song.name - in it's case, 'Fame'.
+      // This is an example of the returned data : text: '{"id":1,"name":"Fame","artist":"David Bowie","album":"Young Americans","time":"4:12","is_favorite":true}'
+      console.log(song.name + " was deleted");
+    } else {
+      throw error;
+    }
   } catch (error) {
-    // I think i'm getting an error back instead of the above, but it's succeeding?
-    return error;
+    return res.status(404).send({ error: "Song with request id not found" });
   }
 });
-songs.put("/:id", async (req, res) => {});
+songs.put("/:id", checkName, checkBool, checkArtist, async (req, res) => {});
 
 module.exports = songs;

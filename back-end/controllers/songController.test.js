@@ -253,6 +253,7 @@ describe("Songs", () => {
     describe("DELETE", () => {
       it("with valid id - deletes the correct song", async () => {
         const response = await request(songs).delete("/songs/1").send();
+        console.log(response);
         const parsedRes = JSON.parse(response.text);
         expect(parsedRes.name).toEqual("Fame");
       });

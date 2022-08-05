@@ -8,6 +8,16 @@ const checkName = (req, res, next) => {
   }
 };
 
+const checkArtist = (req, res, next) => {
+  console.log("artist is being checked");
+  if (req.body.artist) {
+    console.log("Artist detected");
+    next();
+  } else {
+    res.status(400).json({ error: "Artist name is required" });
+  }
+};
+
 const checkBool = (req, res, next) => {
   const { is_favorite } = req.body;
   if (
@@ -17,9 +27,11 @@ const checkBool = (req, res, next) => {
   ) {
     console.log("Parameters accepted");
     next();
-  } else {
-    res.status(400).json({ error: "This is required to be a boolean value (or nothing)" });
+  } else {Ï
+    res
+      .status(400)
+      .json({ error: "This is required to be a boolean value (or nothing)" });
   }
 };
 
-module.exports = { checkBool, checkName };
+module.exports = { checkBool, checkName, checkArtist };
