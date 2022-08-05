@@ -15,7 +15,7 @@ const getSong = async (id) => {
   try {
     // db one takes a string of SQL commands;   id=$1 allows us to interpolate our
     // second parameter safely. $x per parameter (1, 2, etc.);
-    const oneSong = await db.one("SELECT * FROM songs WHERE id=$1", id);
+    const oneSong = await db.oneOrNone("SELECT * FROM songs WHERE id=$1", id);
     return oneSong;
   } catch (error) {
     return error;

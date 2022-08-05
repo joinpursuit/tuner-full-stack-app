@@ -11,7 +11,7 @@ app.use(express.json());
 
 //Routes
 app.get("/", (req, res) => {
-  res.send("Welcome to it's not a tuner");
+  res.send("Welcome to Tuner");
 });
 
 const songsController = require("./controllers/songsController");

@@ -7,6 +7,8 @@ const {
   deleteSong,
 } = require("../queries/songs");
 
+const { checkBool, checkName } = require("../validations/checkSongs")
+
 //Index
 songs.get("/", async (req, res) => {
   const allSongs = await getAllSongs();
@@ -28,7 +30,7 @@ songs.get("/:id", async (req, res) => {
     res.status(404).json({ error: "not found" });
   }
 });
-songs.post("/", async (req, res) => {
+songs.post("/", checkName, checkBool, async (req, res) => {
   try {
     const song = await createSong(req.body);
     res.json(song);
