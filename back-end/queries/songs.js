@@ -34,8 +34,13 @@ const createSong = async (song) => {
   }
 };
 
-const editSong = async (song) => {
+const editSong = async (song, id) => {
   try {
+    const putSong = await db.one(
+      "UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6 RETURNING *",
+      [song.name, song.artist, song.album, song.time, song.is_favorite, id]
+    );
+    return putSong;
   } catch (error) {
     return error;
   }
@@ -43,11 +48,17 @@ const editSong = async (song) => {
 
 const deleteSong = async (id) => {
   try {
-    const deadSong = await db.one("DELETE FROM songs WHERE id=$1 RETURNING *", id);
+    const deadSong = await db.one(
+      "DELETE FROM songs WHERE id=$1 RETURNING *",
+      id
+    );
+    /* Admittedly, I forgot to actually do the RETURN on the delete for
+      a good long while.
+    */
     return deadSong;
   } catch (error) {
     return error;
   }
 };
 
-module.exports = { getAllSongs, getSong, createSong, deleteSong };
+module.exports = { getAllSongs, getSong, createSong, deleteSong, editSong };
