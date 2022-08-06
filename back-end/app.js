@@ -7,8 +7,8 @@ const songController = require("./controllers/songController.js");
 app.use(express.json());
 app.use(cors());
 
-app.use("/songs", songController);
 
+app.use("/songs", songController);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Tuner");

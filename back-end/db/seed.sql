@@ -1,7 +1,7 @@
-\c tunes_dev
+\c songs_dev
 
 
-INSERT INTO tunes (name, artist, album, time, is_favorite) VALUES
+INSERT INTO songs (name, artist, album, time, is_favorite) VALUES
 ('HEATED', 'Beyonce', 'Renaissance', '4:20', true),
 ('Spritual', 'Burna Boy', 'African Giant', '3:42', true),
 ('Purple Rain', 'Prince', 'Purple Rain', '8:40', false),
