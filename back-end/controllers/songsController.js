@@ -21,7 +21,7 @@ const {
 songs.get("/", async (req, res) => {
   const allSongs = await getAllSongs();
   if (allSongs[0]) {
-    // A simple check to see if there are any songs
+    // A simple check to see if there is at least one song
     res.status(200).json(allSongs);
   } else {
     res.status(500).json({ error: "server error" });
