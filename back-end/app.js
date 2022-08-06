@@ -5,13 +5,15 @@ const express = require("express");
 // CONFIGURATION
 const app = express();
 
+// MIDDLEWARE - above the CONTROLLER!
+app.use(cors());
+app.use(express.json());
+
+
 // Song ROUTES
 const songsController = require("./controllers/songController");
 app.use("/songs", songsController);
 
-// MIDDLEWARE
-app.use(cors());
-app.use(express.json());
 
 // ROUTES
 app.get("/", (req, res) => {
