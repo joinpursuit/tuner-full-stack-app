@@ -12,8 +12,9 @@ app.use("/songs", songController);
 // Bouncer at the club - Allows requests from other origins (like our REACT APP)
 // PARSES JSON FOR US SO WE CAN USE IT - thanks Christine
 
+//"Default Page / Home"
 app.get("/", (req, res) => {
-  res.send("Welcome to TUNER API - Spencer Simon Mixtape");
+  res.send("Welcome to Tuner");
 });
 
 //404

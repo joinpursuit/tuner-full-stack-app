@@ -3,7 +3,7 @@ const checkBoolean = (req, res, next) => {
   if (
     is_favorite == "true" ||
     is_favorite == "false" ||
-    is_favorite == Boolean
+    is_favorite == undefined
   ) {
     next();
   } else {
