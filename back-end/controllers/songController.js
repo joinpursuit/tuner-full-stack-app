@@ -50,7 +50,7 @@ songs.delete("/:id", async (req, res) => {
 });
 
 //UPDATE
-songs.put("/:id", async (req, res) => {
+songs.put("/:id", checkBoolean, checkName, checkArtist, async (req, res) => {
   const { id } =req.params;
   const updatedSong = await updateSong(req.body, id);
   if (updatedSong.id) {
