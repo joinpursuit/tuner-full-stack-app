@@ -9,11 +9,11 @@ const getAllSongs = async () => {
     }
 };
 
+//oneOrNone resolves the QueryResultError issue when searching an incorrect key
 const getSong = async (id) => {
     try{
-        const song = await database.one("SELECT * FROM songs WHERE id=$1", id);
+        const song = await database.oneOrNone("SELECT * FROM songs WHERE id=$1", id);
         return song;
-
     }catch(err){
         return err;
     };
@@ -22,7 +22,7 @@ const getSong = async (id) => {
 const createSong = async (song) => {
     const { name, artist, album, time, is_favorite } = song;
     try {
-      const newSong = await db.one(
+      const newSong = await database.one(
         "INSERT INTO songs (name, artist, album, time, is_favorite) VALUES ($1, $2, $3, $4, $5) RETURNING *",
         [name, artist, album, time, is_favorite]
       );
@@ -32,4 +32,15 @@ const createSong = async (song) => {
     };
 };
 
-module.exports = { getAllSongs, getSong, createSong };
+// const updateSong = async (song, id) => {
+//     const { name, artist, album, time, is_favorite } = song;
+
+//     try{
+//         const updatedSong = await database.one("UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6", [name, artist, album, time, is_favorite, id]);
+//         return updatedSong;
+//     }catch(err){
+//         return err;
+//     };
+// };
+
+module.exports = { getAllSongs, getSong, createSong, updateSong };
