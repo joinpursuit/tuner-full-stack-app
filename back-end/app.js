@@ -15,7 +15,7 @@ const songController = require("./controllers/songController.js");
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Welcome to Aisha and Mason's App");
+  res.send("Welcome to Tuner");
 });
 
 app.use("/songs", songController);
