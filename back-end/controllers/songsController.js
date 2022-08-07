@@ -38,6 +38,7 @@ songs.get("/:id", async (req, res) => {
     res.status(404).json({ error: "not found" });
   }
 });
+
 songs.post("/", checkName, checkBool, checkArtist, async (req, res) => {
   try {
     const song = await createSong(req.body);
@@ -46,6 +47,7 @@ songs.post("/", checkName, checkBool, checkArtist, async (req, res) => {
     return error;
   }
 });
+
 songs.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
