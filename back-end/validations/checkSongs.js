@@ -10,6 +10,14 @@ const checkName = (req, res, next) => {
 	}
 };
 
+const checkArtist = (req, res, next) => {
+	if (req.body.artist) {
+		next();
+	} else {
+		res.status(400).json({ error: 'Artist is required' });
+	}
+};
+
 // Check for a `Boolean` value. We can end up where the user/front end app does not give a `Boolean` value.
 const checkBoolean = (req, res, next) => {
 	const { is_favorite } = req.body;
@@ -24,4 +32,4 @@ const checkBoolean = (req, res, next) => {
 	}
 };
 
-module.exports = { checkBoolean, checkName };
+module.exports = { checkArtist, checkBoolean, checkName };
