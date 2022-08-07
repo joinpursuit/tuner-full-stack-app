@@ -27,20 +27,35 @@ const createSong = async (song) => {
         [name, artist, album, time, is_favorite]
       );
       return newSong;
-    } catch (error) {
-      return error;
+    } catch (err) {
+      return err;
     };
 };
 
-// const updateSong = async (song, id) => {
-//     const { name, artist, album, time, is_favorite } = song;
+const updateSong = async (song, id) => {
+    const { name, artist, album, time, is_favorite } = song;
 
-//     try{
-//         const updatedSong = await database.one("UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6", [name, artist, album, time, is_favorite, id]);
-//         return updatedSong;
-//     }catch(err){
-//         return err;
-//     };
-// };
+    try{
+        const updatedSong = await database.one("UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6 RETURNING *", [name, artist, album, time, is_favorite, id]);
+        return updatedSong;
+    }catch(err){
+        return err;
+    };
+};
 
-module.exports = { getAllSongs, getSong, createSong, updateSong };
+const deleteSong = async (id) => {
+    try{
+        const deletedSong = await database.one("DELETE FROM songs WHERE id=$1 RETURNING *", id);
+        return deletedSong;
+    }catch(err){
+        return err;
+    };
+};
+
+module.exports = { 
+    getAllSongs, 
+    getSong, 
+    createSong, 
+    updateSong, 
+    deleteSong 
+};

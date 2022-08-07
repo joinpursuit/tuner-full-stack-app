@@ -3,7 +3,7 @@ const checkName = (req, res, next) => {
     if (name) {
         next();
     } else {
-        res.status(400).json({error: "Add a name"})
+        res.status(400).json({error: "A name must be added"})
     }
 };
 
@@ -12,7 +12,7 @@ const checkArtist = (req, res, next) => {
     if (artist) {
         next();
     } else {
-        res.status(400).json({error: "Add an artist"})
+        res.status(400).json({error: "An artist must be added"})
     }
 };
 
