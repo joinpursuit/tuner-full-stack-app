@@ -19,4 +19,12 @@ const checkName = (req, res, next) => {
   }
 };
 
-module.exports = { checkBoolean, checkName };
+const checkArtist = (req, res, next) => {
+  if (req.body.artist) {
+    next();
+  } else {
+    res.status(400).json({ error: "Artist is required" });
+  }
+};
+
+module.exports = { checkBoolean, checkName, checkArtist };
