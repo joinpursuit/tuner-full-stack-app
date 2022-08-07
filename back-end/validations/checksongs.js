@@ -24,6 +24,14 @@ const checkId = (req, res, next) => {
   }
 };
 
+const checkTime = (req, res, next ) => {
+  if(!isNaN(Number(req.body.time))){
+    next();
+  } else {
+    res.status(404).json({ error: "Please provide a valid time" })
+  }
+}
+
 const checkBoolean = (req, res, next) => {
   const { is_favorite } = req.body;
     if (
@@ -31,11 +39,12 @@ const checkBoolean = (req, res, next) => {
       is_favorite === "false" ||
       is_favorite === undefined
     ) {
-
     next();
   } else {
     res.status(400).json({ error: "is_favorite should be a boolean" });
   }
 };
 
-module.exports = { checkName, checkBoolean, checkArtist, checkId };
+
+
+module.exports = { checkName, checkBoolean, checkArtist, checkId, checkTime };

@@ -4,6 +4,7 @@ const {
   getAllSongs,
   getSong,
   createSong,
+  deleteSong,
   updateSong,
 } = require("../queries/songs.js");
 const {
@@ -11,6 +12,7 @@ const {
   checkBoolean,
   checkArtist,
   checkId,
+  checkTime,
 } = require("../validations/checksongs");
 
 songs.get("/", async (req, res) => {
@@ -43,12 +45,27 @@ songs.post("/", checkName, checkBoolean, checkArtist, async (req, res) => {
   }
 });
 
-songs.put("/:id", checkName, checkBoolean, checkArtist, async (req, res) => {
-  try {
-    const song = await updateSong(req.body);
-    res.json(song);
-  } catch (error) {
-    return error;
+
+songs.put('/:id', checkName, checkBoolean, checkArtist, async (req, res) => {
+  const { id } = req.params;
+  const updatedSong = await updateSong(req.body, id);
+  if(updatedSong.id) {
+    res.status(200).json(updatedSong)
+  } else {
+    res.status(404).json('Error : Song not updated')
   }
-});
+})
+
+songs.delete('/:id', async (req, res) => {
+  const { id } = req.params; 
+  const deletedSong = await deleteSong(id);
+  if(deletedSong.id){
+    res.status(200).json(deletedSong)
+  } else {
+    res.status(404).json("Song not found!")
+  }
+})
+
+
+
 module.exports = songs;
