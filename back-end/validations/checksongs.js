@@ -14,21 +14,28 @@ const checkArtist = (req, res, next) => {
   }
 };
 
+const checkId = (req, res, next) => {
+  const { id } = req.params;
+
+  if (!isNaN(Number(id))) {
+    next();
+  } else {
+    res.status(400).json({ error: "Please provide a valid ID" });
+  }
+};
+
 const checkBoolean = (req, res, next) => {
   const { is_favorite } = req.body;
-//   if (
-//     is_favorite === "true" ||
-//     is_favorite === "false" ||
-//     is_favorite === undefined
-//   ) {
-    console.log(typeof is_favorite);
-    if(is_favorite || !is_favorite ){
+    if (
+      is_favorite === "true" ||
+      is_favorite === "false" ||
+      is_favorite === undefined
+    ) {
 
-    
     next();
   } else {
     res.status(400).json({ error: "is_favorite should be a boolean" });
   }
 };
 
-module.exports = { checkName, checkBoolean, checkArtist };
+module.exports = { checkName, checkBoolean, checkArtist, checkId };

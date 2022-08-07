@@ -1,7 +1,17 @@
 const express = require("express");
 const songs = express.Router();
-const { getAllSongs, getSong, createSong,updateSong } = require("../queries/songs.js");
-const { checkName, checkBoolean, checkArtist } = require("../validations/checksongs");
+const {
+  getAllSongs,
+  getSong,
+  createSong,
+  updateSong,
+} = require("../queries/songs.js");
+const {
+  checkName,
+  checkBoolean,
+  checkArtist,
+  checkId,
+} = require("../validations/checksongs");
 
 songs.get("/", async (req, res) => {
   const allSongs = await getAllSongs();
@@ -12,10 +22,11 @@ songs.get("/", async (req, res) => {
   }
 });
 
-songs.get("/:id", async (req, res) => {
+songs.get("/:id", checkId, async (req, res) => {
   const { id } = req.params;
   const song = await getSong(id);
 
+  console.log(song);
   if (song.name !== "QueryResultError" && song.name !== "error") {
     res.json(song);
   } else {
@@ -23,7 +34,7 @@ songs.get("/:id", async (req, res) => {
   }
 });
 
-songs.post("/", checkName, checkBoolean,checkArtist, async (req, res) => {
+songs.post("/", checkName, checkBoolean, checkArtist, async (req, res) => {
   try {
     const song = await createSong(req.body);
     res.json(song);
@@ -32,12 +43,12 @@ songs.post("/", checkName, checkBoolean,checkArtist, async (req, res) => {
   }
 });
 
-songs.put("/:id", checkName, checkBoolean,checkArtist, async (req, res) => {
-    try {
-      const song = await updateSong(req.body);
-      res.json(song);
-    } catch (error) {
-      return error;
-    }
-  });
+songs.put("/:id", checkName, checkBoolean, checkArtist, async (req, res) => {
+  try {
+    const song = await updateSong(req.body);
+    res.json(song);
+  } catch (error) {
+    return error;
+  }
+});
 module.exports = songs;
