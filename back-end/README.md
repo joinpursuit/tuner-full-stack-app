@@ -15,5 +15,5 @@ PG_USER=postgres
 
 
 - `npm i`
-- `npm run dbinit`
+- `npm run db:init`
 - `npm run seed`
