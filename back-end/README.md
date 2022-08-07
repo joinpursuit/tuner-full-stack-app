@@ -13,7 +13,6 @@ PG_DATABASE=tuner
 PG_USER=postgres
 ```
 
-
 - `npm i`
-- `npm run dbinit`
-- `npm run seed`
+- `npm run db:init`
+- `npm run db:seed`
