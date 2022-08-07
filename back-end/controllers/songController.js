@@ -1,5 +1,5 @@
 const express = require("express");
-const { errors } = require("pg-promise");
+// const { errors } = require("pg-promise");
 const songs = express.Router();
 const {
   getAllSongs,
@@ -9,15 +9,15 @@ const {
   updateSong,
 } = require("../queries/songs");
 
-const { checkName, checkBoolean, checkArtist} = require("../validations/checkSongs.js");
+const {
+  checkName,
+  checkBoolean,
+  checkArtist,
+} = require("../validations/checkSongs.js");
 
-// Extends our app so that we can create a new route for our SONGS resource
-// we need to make this ASYNC as well
-songs.get("/", async (req, res) => {
+songs.get('/', async (req, res) => {
   const allSongs = await getAllSongs();
   if (allSongs[0]) {
-    // if there is one index that gets returned then the data exists - John P 8/2/2022
-    // an empty array is TRUTHY - so we need to check for an element
     res.status(200).json(allSongs);
   } else {
     res.status(500).json({ error: "server error!" });
@@ -30,7 +30,7 @@ songs.post("/", checkBoolean, checkName, checkArtist, async (req, res) => {
     const song = await createSong(req.body);
     res.json(song);
   } catch (error) {
-    return error;
+    res.status(400).json({ error: error });
   }
 });
 
@@ -38,7 +38,7 @@ songs.post("/", checkBoolean, checkName, checkArtist, async (req, res) => {
 songs.get("/:id", async (req, res) => {
   const { id } = req.params;
   const song = await getSong(id);
-  if (song) {
+  if (song.id) {
     res.json(song);
   } else {
     res.status(404).json({ error: "not found" });
@@ -46,13 +46,13 @@ songs.get("/:id", async (req, res) => {
 });
 
 // UPDATE ROUTE
-songs.put("/:id", checkName, checkBoolean, checkArtist, async (req, res) => {
+songs.put("/:id", checkName, checkArtist, checkBoolean, async (req, res) => {
   const { id } = req.params;
-  const updatedSong = await updateSong(id, req.body);
+  const updatedSong = await updateSong(req.body, id);
   if (updatedSong.id) {
-  res.status(200).json(updatedSong);
+      res.status(200).json(updatedSong);
   } else {
-    res.status(404).json({error: "Song's not updated for some reason..."})
+      res.status(404).json({ error: "Not found" })
   }
 });
 
@@ -63,9 +63,8 @@ songs.delete("/:id", async (req, res) => {
   if (deletedSong.id) {
     res.status(200).json(deletedSong);
   } else {
-    res.status(404).json("Song not found!");
+    res.status(404).json("Song not found");
   }
 });
 
-// EXPORT our SONGS Router
 module.exports = songs;

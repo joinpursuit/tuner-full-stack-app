@@ -1,12 +1,7 @@
 const db = require("../db/dbConfig.js");
 
-// async await is the modern way to handle promises
-// we tried to show you earlier :'(
 const getAllSongs = async () => {
   try {
-    // .any() CAN return ANYTHING from the query
-    // returns ALL rows that match the QUERY
-    // that we pass
     const allSongs = await db.any("SELECT * FROM songs");
     return allSongs;
   } catch (err) {
@@ -40,11 +35,11 @@ const getSong = async (id) => {
 
 //UPDATE
 const updateSong = async (id, song) => {
-  const { name, artist, album, time, is_favorite } = song;
+  // const { name, artist, album, time, is_favorite } = song;
   try {
     const updatedSong = await db.one(
       "UPDATE songs SET name=$1, artist=$2, album=$3, time=$4 is_favorite=$5 WHERE id=$6 RETURNING *",
-      [name, artist, album, time, is_favorite, id]
+      [song.name, song.artist, song.album, song.time, song.is_favorite, id]
     );
     return updatedSong;
   } catch (error) {
