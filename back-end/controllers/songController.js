@@ -44,7 +44,7 @@ songs.get('/:id', async (req, res) => {
 
 // Create the `CREATE` route and test it with Postman.
 // CREATE ROUTE
-// Add `checkArtist`, `checkName`, `checkBoolean`, `validateURL` functions as middleware for the `CREATE` route.
+// Add `checkArtist`, `checkName`, `checkBoolean` functions as middleware for the `CREATE` route.
 songs.post('/', checkArtist, checkBoolean, checkName, async (req, res) => {
 	try {
 		const song = await createSong(req.body);
@@ -68,7 +68,7 @@ songs.delete('/:id', async (req, res) => {
 });
 
 // UPDATE ROUTE
-// Add `checkArtist`, `checkName`, `checkBoolean`, `validateURL` functions as middleware for the `UPDATE` route.
+// Add `checkArtist`, `checkName`, `checkBoolean` functions as middleware for the `UPDATE` route.
 songs.put('/:id', checkArtist, checkBoolean, checkName, async (req, res) => {
 	const { id } = req.params;
 	// updatedSong will either be a MASSIVE error object from SQL
