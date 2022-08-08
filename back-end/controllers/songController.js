@@ -2,6 +2,13 @@ const express = require("express");
 const songs = express.Router();
 // const favSongs = require("../models/songs");
 const db = require("../db/dbConfig");
+const {
+  getAllSongs,
+  getASong,
+  createSong,
+  deleteSong,
+  updateSong,
+} = require("../queries/songs");
 
 // Index of all listed Songs
 songs.get("/", async (req, res) => {
@@ -38,6 +45,28 @@ songs.post("/new", (req, res) => {
     ]
   );
   res.status(200).json({ success: true, payload: newSongs });
+});
+
+songs.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedSong = await db.one(
+    "DELETE FROM song WHERE id=$1 RETURNING *",
+    id
+  );
+  if (deletedSong) {
+    res.status(200).json(deletedSong);
+  } else {
+    res.status(404).send(`No track exists with that ${id}.`);
+  }
+});
+
+songs.put("/:id", async (req, res) => {
+  try {
+    const song = await updateSong(req.params.id, req.body);
+    res.json(song);
+  } catch (error) {
+    res.status(400).json({ error: error });
+  }
 });
 
 module.exports = songs;
