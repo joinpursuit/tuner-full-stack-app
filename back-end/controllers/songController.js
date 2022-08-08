@@ -54,7 +54,7 @@ songs.delete("/:id", async (req, res) => {
     id
   );
   if (deletedSong) {
-    res.status(200).json(deletedSong);
+    res.status(200).json({ success: true, payload: deletedSong });
   } else {
     res.status(404).send(`No track exists with that ${id}.`);
   }
