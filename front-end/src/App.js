@@ -14,18 +14,18 @@ import axios from "axios";
       -Single Song ✓ 
       -Edit Song ✓ 
       -New Song ✓ 
-      -Links in the Navbar
+      -Links in the Navbar ✓
 
     Non-routed functionality:
       -Delete Song
 */
 
 /* The Holy Grail Layout :
-      -Header (NavBar)
+      -Header (NavBar) ✓
       -Footer (Whatever)
       -3 Columns :
         - Left : ??
-        - Center : Song info, relevant buttons
+        - Center : Song info, relevant buttons ✓
         - Right : ??
 */
 
@@ -56,7 +56,7 @@ function App() {
     axios.get(`${API_KEY}/songs`).then((res) => {
       setSongs(res.data);
     });
-  }, []);
+  }, [songs]);
 
   return (
     <div className="App">

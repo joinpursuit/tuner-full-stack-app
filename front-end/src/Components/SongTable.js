@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Song } from "./Song";
+import axios from "axios";
+import Link from "@material-ui/core";
 
 /* To Do 
     - Favorite button clickable to toggle between favorite or not
@@ -7,7 +9,6 @@ import { Song } from "./Song";
 */
 
 // MUI Imports
-
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -18,6 +19,12 @@ import Paper from "@mui/material/Paper";
 import { Button } from "@material-ui/core";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+
+const API_KEY = process.env.REACT_APP_API_URL;
+
+const handleFavorite = (id, name, artist, album, time, is_favorite) => {
+  // In here, do a PUT that changes the favorite status of the song
+};
 
 export const SongTable = ({ songs }) => {
   return (
@@ -36,12 +43,24 @@ export const SongTable = ({ songs }) => {
           {songs.map((song) => {
             return (
               <TableRow key={song.id}>
-                <TableCell>{song.name}</TableCell>
+                {/* <TableCell>{song.name}</TableCell>
                 <TableCell>{song.artist}</TableCell>
                 <TableCell>{song.album}</TableCell>
-                <TableCell>{song.time}</TableCell>
+                <TableCell>{song.time}</TableCell> */}
+                <Song song={song} />
                 <TableCell>
-                  <Button>
+                  <Button
+                    onClick={() => {
+                      const fav = !song.is_favorite ? "true" : "false";
+                      axios.put(`${API_KEY}/songs/${song.id}`, {
+                        name: song.name,
+                        artist: song.artist,
+                        album: song.album,
+                        time: song.time,
+                        is_favorite: fav,
+                      });
+                    }}
+                  >
                     {song.is_favorite ? (
                       <FavoriteIcon />
                     ) : (
@@ -50,7 +69,7 @@ export const SongTable = ({ songs }) => {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button>Edit</Button>
+                  <Button href="">Edit</Button>
                 </TableCell>
               </TableRow>
             );

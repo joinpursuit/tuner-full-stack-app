@@ -6,11 +6,11 @@ import { TableRow } from "@mui/material";
 export const Song = ({ song }) => {
   // Remember to destructure props, even if only a single item
   return (
-    <div>
-      <TableCell component="th" scope="row">
-        {song.name}
-      </TableCell>
+    <>
+      <TableCell>{song.name}</TableCell>
       <TableCell>{song.artist}</TableCell>
-    </div>
+      <TableCell>{song.album}</TableCell>
+      <TableCell>{song.time}</TableCell>
+    </>
   );
 };

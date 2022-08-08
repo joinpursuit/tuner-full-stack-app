@@ -1,3 +1,5 @@
+// Followed guide on making a navbar out of a MUI Appbar here https://javascript.works-hub.com/learn/how-to-create-a-responsive-navbar-using-material-ui-and-react-router-f9a01
+
 import React from "react";
 
 //MUI Imports
@@ -11,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  // Allows for special in-line styling
   navlinks: {
     marginLeft: theme.spacing(0),
     display: "flex",
@@ -18,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     flexGrow: "1",
     cursor: "pointer",
-    textDecoration:"none",
-    color:"white"
   },
   link: {
     textDecoration: "none",
@@ -40,7 +41,7 @@ export const NavBar = () => {
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-            <Link to="/" className={classes.logo}>Ultimate Jukebox 9000</Link>
+          Ultimate Music Playlist 9000
         </Typography>
         <div className={classes.navlinks}>
           <Link to="/songs" className={classes.link}>
