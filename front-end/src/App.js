@@ -4,12 +4,10 @@
   my memory.
 */
 
-// Clean up and consolidate imports ✓ 
+// Clean up and consolidate imports ✓
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
-
-
 
 /* Routes:
       -All Songs ✓ 
@@ -47,6 +45,7 @@ import { ShowSong } from "./Components/ShowSong";
 import { EditSong } from "./Components/EditSong";
 import { NewSong } from "./Components/NewSong";
 import { Home } from "./Components/Home";
+import { NavBar } from "./Components/NavBar";
 
 const API_KEY = process.env.REACT_APP_API_URL;
 
@@ -61,12 +60,15 @@ function App() {
 
   return (
     <div className="App">
-      <h3>I will be the navbar - someday</h3>
+      <NavBar />
       <Routes>
         <Route path="/songs" element={<Home songs={songs} />}></Route>
-        <Route path="/songs/:id" element={<ShowSong API={API_KEY}/>}></Route>
-        <Route path="/songs/:id/edit" element={<EditSong API={API_KEY}/>}></Route>
-        <Route path="/songs/new" element={<NewSong API={API_KEY}/>}></Route>
+        <Route path="/songs/:id" element={<ShowSong API={API_KEY} />}></Route>
+        <Route
+          path="/songs/:id/edit"
+          element={<EditSong API={API_KEY} />}
+        ></Route>
+        <Route path="/songs/new" element={<NewSong API={API_KEY} />}></Route>
       </Routes>
     </div>
   );
