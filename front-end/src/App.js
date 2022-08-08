@@ -4,18 +4,19 @@
   my memory.
 */
 
-// Clean up and consolidate imports
-import React from "react";
+// Clean up and consolidate imports ✓ 
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+
+
 
 /* Routes:
-      -All Songs
-      -Single Song
-      -Edit Song
-      -New Song
+      -All Songs ✓ 
+      -Single Song ✓ 
+      -Edit Song ✓ 
+      -New Song ✓ 
+      -Links in the Navbar
 
     Non-routed functionality:
       -Delete Song
@@ -31,8 +32,8 @@ import { useEffect } from "react";
 */
 
 /*  To Do
-  - Fetch data, set to a state 
-  - Make components 
+  - Fetch data, set to a state ✓ 
+  - Make components ✓ 
     -- Single song display (Show) --- <ShowSong>  ✓
     -- Edit Song (Edit) + Ability to delete --- <EditSong> ✓
     -- All Songs (Home) + Ability to change is_favorite from here --- <Home> + <Song> ✓
@@ -55,13 +56,12 @@ function App() {
     // Run on page load, and when songs is updated
     axios.get(`${API_KEY}/songs`).then((res) => {
       setSongs(res.data);
-      console.log("I have succeded, here are the songs : " + songs);
     });
-  }, [songs]);
+  }, []);
 
   return (
     <div className="App">
-      <div>I will be the navbar - someday</div>
+      <h3>I will be the navbar - someday</h3>
       <Routes>
         <Route path="/songs" element={<Home songs={songs} />}></Route>
         <Route path="/songs/:id" element={<ShowSong API={API_KEY}/>}></Route>

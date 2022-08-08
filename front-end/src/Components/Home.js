@@ -1,6 +1,10 @@
 import React from "react";
-import { Song } from "./Song";
+import { SongTable } from "./SongTable";
 
-export const Home = (songs) => {
-  return <div>Home</div>;
+export const Home = ({songs}) => {
+  return (
+    <>
+      <SongTable songs={songs} />
+    </>
+  );
 };
