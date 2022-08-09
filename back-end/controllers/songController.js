@@ -5,17 +5,17 @@ const {
   getAllSongs,
   getSong,
   createSong,
-  deleteSong,
   updateSong,
+  deleteSong,
 } = require("../queries/songs");
 
 const {
   checkName,
-  checkBoolean,
   checkArtist,
+  checkBoolean,
 } = require("../validations/checkSongs.js");
 
-songs.get('/', async (req, res) => {
+songs.get("/", async (req, res) => {
   const allSongs = await getAllSongs();
   if (allSongs[0]) {
     res.status(200).json(allSongs);
@@ -50,9 +50,9 @@ songs.put("/:id", checkName, checkArtist, checkBoolean, async (req, res) => {
   const { id } = req.params;
   const updatedSong = await updateSong(req.body, id);
   if (updatedSong.id) {
-      res.status(200).json(updatedSong);
+    res.status(200).json(updatedSong);
   } else {
-      res.status(404).json({ error: "Not found" })
+    res.status(404).json("Song not found");
   }
 });
 

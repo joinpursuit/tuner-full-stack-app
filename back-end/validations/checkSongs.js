@@ -27,4 +27,4 @@ const checkArtist = (req, res, next) => {
   }
 };
 
-module.exports = { checkBoolean, checkName, checkArtist };
+module.exports = { checkName, checkArtist, checkBoolean };
