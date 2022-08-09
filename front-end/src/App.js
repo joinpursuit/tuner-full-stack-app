@@ -22,9 +22,9 @@ import axios from "axios";
 
 /* The Holy Grail Layout :
       -Header (NavBar) ✓
-      -Footer (Whatever)
+      -Footer (Whatever) : Thinking another Appbar with names, github links, direct repo-link? 
       -3 Columns :
-        - Left : ??
+        - Left : Maybe a list of available playlists?
         - Center : Song info, relevant buttons ✓
         - Right : ??
 */
@@ -35,8 +35,7 @@ import axios from "axios";
     -- Single song display (Show) --- <ShowSong>  ✓
     -- Edit Song (Edit) + Ability to delete --- <EditSong> ✓
     -- All Songs (Home) + Ability to change is_favorite from here --- <Home> + <Song> ✓
-      ++ 1 component for displaying all the songs, and 1 component that returns the individual
-          songs to fit into the display format ✓
+      ++ 1 component for displaying all the songs, and 1 component that returns the individual songs to fit into the display format ✓
 
 */
 
@@ -54,7 +53,7 @@ function App() {
   useEffect(() => {
     // Run on page load, and when songs is updated
     axios.get(`${API_KEY}/songs`).then((res) => {
-      setSongs(res.data);
+      setSongs(res.data).catch((error) => console.warn("Catch", error));
     });
   }, [songs]);
 

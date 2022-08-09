@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Song } from "./Song";
 import axios from "axios";
-import Link from "@material-ui/core";
 
 /* To Do 
-    - Favorite button clickable to toggle between favorite or not
+    - Favorite button clickable to toggle between favorite or not ✓ 
+        -- Works, but then like, sorts the table? I don't want anythings position to change
     - Edit button brings you to do songs individual edit page
 */
 
@@ -22,36 +22,27 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const API_KEY = process.env.REACT_APP_API_URL;
 
-const handleFavorite = (id, name, artist, album, time, is_favorite) => {
-  // In here, do a PUT that changes the favorite status of the song
-};
-
 export const SongTable = ({ songs }) => {
+  const tableHeaders = ["Title", "Artist", "Album", "Length", "Favorite"];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minwidth: 650 }} aria-label="Song Playlist">
         <TableHead>
           <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>Artist</TableCell>
-            <TableCell>Album</TableCell>
-            <TableCell>Song Length</TableCell>
-            <TableCell>Favorite</TableCell>
+            {tableHeaders.map((header) => {
+              return <TableCell>{header}</TableCell>;
+            })}
           </TableRow>
         </TableHead>
         <TableBody>
           {songs.map((song) => {
             return (
               <TableRow key={song.id}>
-                {/* <TableCell>{song.name}</TableCell>
-                <TableCell>{song.artist}</TableCell>
-                <TableCell>{song.album}</TableCell>
-                <TableCell>{song.time}</TableCell> */}
                 <Song song={song} />
                 <TableCell>
                   <Button
                     onClick={() => {
-                      const fav = !song.is_favorite ? "true" : "false";
+                      const fav = song.is_favorite ? "false" : "true";
                       axios.put(`${API_KEY}/songs/${song.id}`, {
                         name: song.name,
                         artist: song.artist,
@@ -69,7 +60,7 @@ export const SongTable = ({ songs }) => {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button href="">Edit</Button>
+                  <Button href={`/songs/${song.id}/edit`}>Edit</Button>
                 </TableCell>
               </TableRow>
             );
