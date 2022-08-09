@@ -5,6 +5,12 @@ import axios from "axios";
 /* To Do 
     - Favorite button clickable to toggle between favorite or not ✓ 
         -- Doing this changes the position of the song in the database. Why?
+        -- Sort all items by name on first load 
+          - Set the current chosen sort to a state
+          - Upon changing a favorite's status, do an immediate sort of
+            the type that was last chosen (default : name)
+          - Will need different methods for any others I may choose
+            to implement
     - Edit button brings you to do songs individual edit page
 */
 
