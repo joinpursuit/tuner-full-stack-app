@@ -1,13 +1,14 @@
 import React from "react";
 import TableCell from "@mui/material/TableCell";
-import { TableRow } from "@mui/material";
+import { Link } from "react-router-dom";
 
-//This component returns an individual row for the table
+//This component returns an individual row (as cells) for the table
 export const Song = ({ song }) => {
-  // Remember to destructure props, even if only a single item
   return (
     <>
-      <TableCell>{song.name}</TableCell>
+      <TableCell>
+        <Link to={`/songs/${song.id}`}>{song.name}</Link>
+      </TableCell>
       <TableCell>{song.artist}</TableCell>
       <TableCell>{song.album}</TableCell>
       <TableCell>{song.time}</TableCell>
