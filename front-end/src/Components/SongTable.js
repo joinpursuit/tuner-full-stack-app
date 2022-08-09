@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Song } from "./Song";
 import axios from "axios";
 
 /* To Do 
     - Favorite button clickable to toggle between favorite or not ✓ 
-        -- Works, but then like, sorts the table? I don't want anythings position to change
+        -- Doing this changes the position of the song in the database. Why?
     - Edit button brings you to do songs individual edit page
 */
 
@@ -30,7 +30,7 @@ export const SongTable = ({ songs }) => {
         <TableHead>
           <TableRow>
             {tableHeaders.map((header) => {
-              return <TableCell>{header}</TableCell>;
+              return <TableCell align="center">{header}</TableCell>;
             })}
           </TableRow>
         </TableHead>
