@@ -1,7 +1,5 @@
-/* Please forive the execessive amount of comments that may be present throughout
-  this project. I am attempting to not have to lean on old code so much to get me going,
-  and I am trying out commenting what I'm doing as an attempt to help reinforce 
-  my memory.
+/* 
+Please forive the execessive amount of comments that may be present throughout this project. I am attempting to not have to lean on old code so much to get me going, and I am trying out commenting what I'm doing as an attempt to help reinforce my memory.
 */
 
 // Clean up and consolidate imports ✓
@@ -53,7 +51,7 @@ function App() {
   useEffect(() => {
     // Run on page load, and when songs is updated
     axios.get(`${API_KEY}/songs`).then((res) => {
-      setSongs(res.data).catch((error) => console.warn("Catch", error));
+      setSongs(res.data);
     });
   }, [songs]);
 
