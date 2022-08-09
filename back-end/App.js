@@ -1,17 +1,21 @@
 const express = require ('express');
 const cors = require('cors');
 const app = express();
-
-app.use(cors());
+const songsController = require("./controllers/songController");
 
 app.use(express.json());
+app.use(cors());
+app.use('/songs', songsController);
+
+
+
 
 app.get('/', (req,res) => {
-    res.send("Welcome to the tuner app")
+    res.send("Welcome to Tuner")
 })
 
 app.get("*", (req, res) => {
-    res.status(404).send("page not found")
+    res.status(404).send("Page Not Found")
 })
 
-module.export = app;
+module.exports = app;
