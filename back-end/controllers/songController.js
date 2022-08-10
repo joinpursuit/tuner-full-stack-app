@@ -1,8 +1,14 @@
+// invoke express
 const express = require("express");
+
+// creates the server route for songs
 const songs = express.Router();
 const { getAllSongs, getSong, createSong, deleteSong, updateSong } = require("../queries/songs");
+
+// extend out app so that we can create a new route for 
 const { checkName, checkBoolean, checkArtist  } = require("../validations/checkSongs.js");
 
+// routes to specific data
 
 // INDEX
 songs.get("/", async (req, res) => {

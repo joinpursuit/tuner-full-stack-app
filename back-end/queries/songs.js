@@ -1,8 +1,15 @@
+// brings the data base with us
 const db = require("../db/dbConfig.js");
 
+// async handle promises
+
+// configured to respond to the database
 // INDEX
 const getAllSongs = async () => {
   try {
+    // .any( can return anything in the query)
+    // returns all rows thta match the query
+    // that we pas
     const allSongs = await db.any("SELECT * FROM songs");
     return allSongs;
   } catch (error) {
@@ -51,7 +58,7 @@ const deleteSong = async (id) => {
 const updateSong = async (id, song) => {
   try {
     const updatedSong = await db.one(
-      "UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 where id=$6 RETURNING *",
+      "UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6 RETURNING *",
       [song.name, song.artist, song.album, song.time, song.is_favorite, id]
     );
     return updatedSong;

@@ -40,4 +40,4 @@ const checkName = (req, res, next) => {
     }
   };
   
-  module.exports = { checkBoolean, checkName, checkArtist };
+  module.exports = { checkBoolean, checkName, checkArtist, validateURL };
