@@ -13,7 +13,7 @@ app.use(cors());
 app.use('/songs', songController);
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Tuner Full Stack Application")
+    res.send("Welcome to Tuner")
 })
 
 //404 

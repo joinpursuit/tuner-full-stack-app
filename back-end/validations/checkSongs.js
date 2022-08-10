@@ -10,7 +10,7 @@ const checkSongName = (req, res, next) => {
 
 const checkArtist = (req, res, next) => {
     console.log("Artist's name is being checked")
-    if (req.body.artist) {
+    if (req.body && req.body.artist) {
         console.log("we've got the artist's name!");
         next();
     } else {
@@ -21,7 +21,7 @@ const checkArtist = (req, res, next) => {
 
 const checkBoolean = (req, res, next) => {
     const { is_favorite } = req.body
-    if (is_favorite === "true" || is_favorite === "false" || is_favorite === undefined) {
+    if (is_favorite === 'true' || is_favorite === 'false' || is_favorite === undefined) {
         console.log(is_favorite)
         next()
     } else {
