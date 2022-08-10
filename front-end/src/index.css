@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  nav {
+    background: #d1a4fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    box-shadow: 2px 2px 4px grey;
+    margin-bottom: 1em;
+  }
+  
+  main {
+    width: 90%;
+    margin: auto;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #4442a5;
+  }
+  
+  h4 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+  
+  table {
+    width: 50%;
+    margin: auto;
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  tbody td:not(td:first-of-type):hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  tbody tr:nth-child(even) {
+    background: #f4eafd;
+  }
+  
+  .New form {
+    margin: auto;
+    width: 95%;
+  }
+  
+  input[type],
+  textarea {
+    display: block;
+    width: 100%;
+    margin: auto;
+  }
+  
+  input[type="submit"] {
+    width: 30%;
+    height: 25px;
+  }
+  
+  .showNavigation {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  label {
+  font-size:20px;
+  float:left;
+  }
+  
+  /* ipads & tablets */
+  @media screen and (max-width: 768px) {
+    body{
+      width: 100%;
+    }
+    label {
+      font-size: 30px;
+    }
+    input {
+      height:30px;
+      font-size: 25px;
+    }
+  
+    nav {
+      display:block;
+      font-size: 25px;
+    }
+  
+    nav button {
+      font-size: 20px;
+      display: inline-block;
+      padding: 15px;
+    }
+  
+    input[type="submit"] {
+      width: 35%;
+      height: 40px;
+      font-size: 25px;
+    }
+  
+    table {
+      font-size: 25px;
+      width: 90%;
+      height: 180px;
+    }
+  
+    button {
+    font-size: 25px;
+    }
+  
+  }
+  
+  /* mobile devices */
+  @media screen and (max-width: 480px) {
+    body{
+      width: 100%;
+    }
+  
+    label {
+      font-size: 40px;
+    }
+  
+    input {
+      display: block;
+    }
+  
+    input, input::placeholder {
+      font-size: 40px
+    }
+  
+    nav {
+      display: block;
+      font-size: 30px;
+      width: 100%;
+    }
+  
+    nav button {
+      font-size: 30px;
+      display: inline-block;
+      padding: 15px;
+    }
+  
+    input[type="submit"] {
+      width: 50%;
+      height: 60px;
+      font-size: 40px;
+    }
+  
+    table {
+      font-size: 20px;
+      height: 200px;
+      width: 100%;
+      margin: auto;
+    }
+  
+    button {
+    font-size: 20px;
+    }
+   
+  }

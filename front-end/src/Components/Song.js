@@ -6,7 +6,7 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Budget({ budget, index }) {
+export default function Song({song,index}) {
   const navigate = useNavigate();
 
   const handleDelete = () => {
@@ -18,16 +18,16 @@ function Budget({ budget, index }) {
 
   return (
     <tr>
-      <td>{budget.date}</td>
-      <td className="Budget">
-        <a href={`/transactions/${index}`} rel="noreferrer">
-          {budget.item_name}
+      {/* <td>{song.date}</td> */}
+      <td className="Song">
+        <a href={`/songs/${index}`} rel="noreferrer">
+          {song.name}
         </a>
       </td>
-      <td>{budget.amount}</td>
+      <td>{song.artist}</td>
       <td>
         {" "}
-        <Link to={`/transactions/${index}/edit`}>
+        <Link to={`/songs/${index}/edit`}>
           <button>Edit</button>
         </Link>
       </td>
@@ -39,5 +39,3 @@ function Budget({ budget, index }) {
     </tr>
   );
 }
-
-export default Budget;

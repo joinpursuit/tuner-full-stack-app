@@ -34,7 +34,7 @@ export default function Songs() {
           <tbody>
           
             {songs.map((song, index) => {
-              return <Song key={index} song={song} index={index} />;
+              return <Song key={index} song={song} index={song.id} />;
             })        
             }
         
