@@ -1,4 +1,4 @@
-\ c song_db;
+\c song_db;
 insert into songs (name, artist, album, time, is_favorite)
 values (
         'Thinking Bout You',

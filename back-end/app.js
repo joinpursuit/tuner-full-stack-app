@@ -10,7 +10,7 @@ app.get("/", (request, response) => {
 	response.send("Welcome to Tuner");
 });
 
-//app.use("/songs", songsController);
+app.use("/songs", songsController);
 
 app.get("*", (request, response) => {
 	response.status(404).json({ status: "this route does not exist. please try again" });
