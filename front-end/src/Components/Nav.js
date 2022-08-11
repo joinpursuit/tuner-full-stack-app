@@ -8,7 +8,7 @@ export default function Nav() {
       </h1>
       <h2>Tuner</h2>
       <button>
-        <Link to="/songs/new">NEW Songs</Link>
+        <Link to="/songs/new">New Song</Link>
       </button>
     </nav>
   );

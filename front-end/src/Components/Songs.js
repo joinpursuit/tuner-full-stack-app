@@ -25,10 +25,10 @@ export default function Songs() {
         <table>
           <thead>
             <tr>
-              <th>Title</th>
+              <th>Name</th>
               <th>Artist</th>
               <th>Time</th>
-              <th>⭐️</th>
+              <th>Favorite</th>
             </tr>
           </thead>
           <tbody>

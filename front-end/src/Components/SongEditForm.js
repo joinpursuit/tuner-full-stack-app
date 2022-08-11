@@ -15,7 +15,7 @@ export default function SongEditForm() {
     artist: "",
     album: "",
     time: "",
-    Is_favorite: false,
+    is_favorite: false,
   });
 
   useEffect(() => {

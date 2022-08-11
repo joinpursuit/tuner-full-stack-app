@@ -28,7 +28,7 @@ export default function SongDetails() {
           };
 
   return (
-    <article>
+    <div className="Song-Details">
     <strong>Name:</strong> {song.name}
       <br/><br/>
    <strong>Artist:</strong> {song.artist}
@@ -57,6 +57,6 @@ export default function SongDetails() {
       </div>
 
 
-    </article>
+    </div>
   )
 }

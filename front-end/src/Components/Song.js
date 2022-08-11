@@ -19,24 +19,21 @@ export default function Song({song}) {
   };
 
   return (
-    <tr>
-      {/* <td>{song.date}</td> */}
-      <td className="Song">
+    <tr className="Song Songs">
+      <td >
         <a href={`/songs/${song.id}`} rel="noreferrer">
           {song.name}
         </a>
       </td>
-      <td>{song.artist}</td>
-      <td>
-        {" "}
-        <Link to={`/songs/${song.id}/edit`}>
-          <button>Edit</button>
-        </Link>
+      
+      <td >{song.artist}</td>
+
+      <td >
+       {song.time}
       </td>
 
-      <td>
-        {" "}
-        <button onClick={handleDelete}>Delete</button>
+      <td >
+       {song.is_favorite ? <span>⭐️</span> : "nope"}
       </td>
     </tr>
   );

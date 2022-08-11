@@ -10,7 +10,7 @@ export default function SongNewForm() {
     artist: "",
     album: "",
     time: "",
-    Is_favorite: false,
+    is_favorite: false,
   });
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ export default function SongNewForm() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label for="name" name="Song Name" >Song Name</label>
         <input
           id="name"
           value={song.name}
@@ -51,7 +51,7 @@ export default function SongNewForm() {
           required
         />
         <br />
-        <label>Artist:</label>
+        <label for="artist">Artist:</label>
         <input
           id="artist"
           value={song.artist}
@@ -61,7 +61,7 @@ export default function SongNewForm() {
           required
         />
         <br />
-        <label>Album:</label>
+        <label for="album">Album:</label>
         <input
           id="album"
           value={song.album}
@@ -71,7 +71,7 @@ export default function SongNewForm() {
           required
         />
         <br />
-        <label>Time:</label>
+        <label for="time">Time:</label>
         <input
           id="time"
           value={song.time}
