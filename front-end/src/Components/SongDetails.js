@@ -7,22 +7,22 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 
-//changed index to index - ITS NOT WORKING YET. 
+//changed id to index - ITS NOT WORKING YET. 
 
 export default function SongDetails() {
     const [song, setSong] = useState({});
-    let { index } = useParams();
+    let { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(
         () => {
-          axios.get(`${API}/songs/${index}`)
+          axios.get(`${API}/songs/${id}`)
             .then((response) => setSong(response.data))
             .catch((error) => navigate(`/404`));
-        }, [index]);
+        }, [id, navigate, API]);
 
     const handleDelete = () => {
-            axios.delete(`${API}/songs/${index}`)
+            axios.delete(`${API}/songs/${id}`)
               .then((response) => navigate(`/songs`))
               .catch((error) => console.error(error));
           };
@@ -35,7 +35,7 @@ export default function SongDetails() {
     <br/><br/>
     <strong>Album:</strong> {song.album}
     <br/><br/>
-    <strong>Is Favorite:</strong> {song.is_favorite}
+    <strong>Is Favorite:</strong>  {song.is_favorite ? <span>⭐️</span> : "Nope"}
     <br/><br/>
     <strong>Time:</strong> {song.time}
     <br/><br/>
@@ -47,7 +47,7 @@ export default function SongDetails() {
           </Link>
         </div>
         <div>
-          <Link to={`/songs/${index}/edit`}>
+          <Link to={`/songs/${id}/edit`}>
             <button>Edit</button>
           </Link>
         </div>

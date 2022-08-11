@@ -6,12 +6,14 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function Song({song,index}) {
+export default function Song({song}) {
   const navigate = useNavigate();
+
+// {console.log(song.id)}
 
   const handleDelete = () => {
     axios
-      .delete(`${API}/songs/${index}`)
+      .delete(`${API}/songs/${song.id}`)
       .then((response) => {window.location.reload();})
       .catch((error) => console.error(error));
   };
@@ -20,14 +22,14 @@ export default function Song({song,index}) {
     <tr>
       {/* <td>{song.date}</td> */}
       <td className="Song">
-        <a href={`/songs/${index}`} rel="noreferrer">
+        <a href={`/songs/${song.id}`} rel="noreferrer">
           {song.name}
         </a>
       </td>
       <td>{song.artist}</td>
       <td>
         {" "}
-        <Link to={`/songs/${index}/edit`}>
+        <Link to={`/songs/${song.id}/edit`}>
           <button>Edit</button>
         </Link>
       </td>

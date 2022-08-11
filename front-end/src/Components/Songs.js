@@ -33,8 +33,8 @@ export default function Songs() {
           </thead>
           <tbody>
           
-            {songs.map((song, index) => {
-              return <Song key={index} song={song} index={song.id} />;
+            {songs.map((song) => {
+              return <Song key={song.id} song={song}   />;
             })        
             }
         
