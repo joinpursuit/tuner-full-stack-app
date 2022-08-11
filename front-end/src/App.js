@@ -20,7 +20,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/songs" element={<Index />} />
-          {/* the more specific routes come before wildcard routes which is why New comes before Show */}
           <Route path="/songs/new" element={<New />} />
           <Route path="/songs/:id" element={<Show />} />
           <Route path="/songs/:id/edit" element={<Edit />} />

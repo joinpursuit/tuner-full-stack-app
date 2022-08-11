@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Song from "./Song";
+import { Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -14,9 +15,10 @@ const Songs = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Songs Index</h1>
-            {songs.map(song => <Song song={song}/>)}
+        <div className="Songs">
+            <h1>List of Songs</h1>
+            <a href={'/songs/new'}>New Song</a>
+            {songs.map((song) => <Song key={song.id} song={song} id={song.id} />)}
         </div>
     );
 };
