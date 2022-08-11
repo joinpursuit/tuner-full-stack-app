@@ -28,7 +28,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { handleBreakpoints } from "@mui/system";
+import Slide from "@mui/material/Slide";
 
 const API_KEY = process.env.REACT_APP_API_URL;
 
@@ -36,6 +36,10 @@ const API_KEY = process.env.REACT_APP_API_URL;
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
+
+const transitionRight = (props) => {
+  return <Slide {...props} direction="left" />;
+};
 
 export const SongTable = ({ songs }) => {
   const [open, setOpen] = React.useState();
@@ -51,8 +55,6 @@ export const SongTable = ({ songs }) => {
     }
     setOpen(false);
   };
-
-  const handleClick = () => {};
 
   return (
     <div>
@@ -81,7 +83,7 @@ export const SongTable = ({ songs }) => {
                           time: song.time,
                           is_favorite: fav,
                         });
-                        //This part took shamefully way too long to get
+                        //This part took shamefully way too long to get. It kept displaying the wrong alert type
                         fav === "true"
                           ? setAlertHeaders({
                               severity: "success",
@@ -110,7 +112,12 @@ export const SongTable = ({ songs }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+      <Snackbar
+        open={open}
+        autoHideDuration={1000}
+        TransitionComponent={transitionRight}
+        onClose={handleClose}
+      >
         <Alert
           onClose={handleClose}
           severity={alertHeaders.severity}
