@@ -5,6 +5,9 @@ const {
 	checkBoolean,
 	checkName,
 	checkForNoAdditionalParams,
+	checkAlbum,
+	checkTime,
+	checkArtist,
 } = require("../validations/checkSongs");
 
 songs.get("/", async (request, response) => {
@@ -21,27 +24,37 @@ songs.get("/", async (request, response) => {
 songs.get("/:id", async (request, response) => {
 	const { id } = request.params;
 	const song = await getSong(id);
-	if (song) {
+	if (song.id) {
 		response.json(song);
 	} else {
 		response.status(404).json({ error: "not found" });
 	}
 });
 // Create
-songs.post("/", checkBoolean, checkName, checkForNoAdditionalParams, async (request, response) => {
-	try {
-		const song = await createSong(request.body);
-		response.json(song);
-	} catch (error) {
-		response.status(400).json({ error: error });
+songs.post(
+	"/",
+	checkBoolean,
+	checkName,
+	checkArtist,
+	checkTime,
+	checkForNoAdditionalParams,
+	async (request, response) => {
+		try {
+			const song = await createSong(request.body);
+			response.json(song);
+		} catch (error) {
+			response.status(400).json({ error: error });
+		}
 	}
-});
+);
 
 // UPDATE
 songs.put(
 	"/:id",
 	checkBoolean,
 	checkName,
+	checkArtist,
+	checkTime,
 	checkForNoAdditionalParams,
 	async (request, response) => {
 		try {
@@ -64,7 +77,7 @@ songs.delete("/:id", async (request, response) => {
 			response.status(404).json({ error: "Song not found" });
 		}
 	} else {
- 		response.status(500).json({ error: "server error" });
+		response.status(500).json({ error: "server error" });
 	}
 });
 
