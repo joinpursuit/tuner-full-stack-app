@@ -1,11 +1,9 @@
 const checkName = (req, res, next) => {
-  console.log("name is being checked");
-  if (req.body.name.length !== 0) {
-    console.log("Name! We've got Name here! See, no one cares. - Dennis Nedry");
-    next();
-  } else {
-    res.status(400).json({ error: "At least a name is required" });
-  }
+  console.log(req.body.name.length);
+  console.log("Song name is being checked");
+  req.body.name
+    ? (console.log(req.body.name), console.log("Name passes"), next())
+    : res.status(400).json({ error: "Song name required" });
 };
 
 const checkArtist = (req, res, next) => {

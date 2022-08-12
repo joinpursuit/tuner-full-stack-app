@@ -25,21 +25,24 @@ export const NewSong = ({ API }) => {
     time: "",
     is_favorite: "false",
   });
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
     setSnackOpen(false);
   };
+
   const handleChange = (e) => {
     makeSong({ ...song, [e.target.id]: e.target.value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addSong();
   };
+
   const addSong = () => {
-    // Axios to come
     try {
       axios
         .post(`${API}/songs`, song)
@@ -57,6 +60,7 @@ export const NewSong = ({ API }) => {
       return error;
     }
   };
+  
   return (
     <div>
       <h1>Add a new song to the playlist</h1>

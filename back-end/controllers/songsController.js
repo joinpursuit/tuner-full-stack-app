@@ -39,7 +39,7 @@ songs.get("/:id", async (req, res) => {
   }
 });
 
-songs.post("/", checkName, checkBool, checkArtist, async (req, res) => {
+songs.post("/", checkName, checkArtist, checkBool, async (req, res) => {
   try {
     const song = await createSong(req.body);
     res.json(song);
