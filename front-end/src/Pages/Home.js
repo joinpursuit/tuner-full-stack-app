@@ -1,7 +1,8 @@
 const Home = () => {
     return (
         <div>
-            <h1>Home Page</h1>
+            <h1>Tuner App</h1>
+            <p>Welcome to the ultimate song playlist!</p>
         </div>
     );
 };

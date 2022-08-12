@@ -2,7 +2,7 @@ import NewSongForm from "../Components/NewSongForm";
 
 const New = () => {
     return (
-        <div>
+        <div className="New">
             <h1>New Song</h1>
             <NewSongForm />
         </div>

@@ -1,18 +1,19 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
 const NewSongForm = () => {
-    const [song, setSong] = useState({
-      name: "",
-      artist: "",
-      album: "",
-      time: "",
-      is_favorite: false,
-    });
-    const navigate = useNavigate();
+  const [song, setSong] = useState({
+    name: "",
+    artist: "",
+    album: "",
+    time: "",
+    is_favorite: false,
+  });
+
+  const navigate = useNavigate();
 
   const addSong = (newSong) => {
     axios
@@ -39,38 +40,42 @@ const NewSongForm = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Song Name:</label>
         <input
-          type="text"
           id="name"
           value={song.name}
+          type="text"
           onChange={handleInput}
           required
         />
         <br />
         <label htmlFor="artist">Artist:</label>
         <input
-          type="text"
           id="artist"
           value={song.artist}
+          type="text"
           onChange={handleInput}
           required
         />
         <br />
         <label htmlFor="album">Album:</label>
         <input
-          type="text"
           id="album"
           value={song.album}
+          type="text"
           onChange={handleInput}
         />
         <br />
         <label htmlFor="time">Time:</label>
-        <input type="text" id="time" value={song.time} onChange={handleInput} />
+        <input 
+            id="time" 
+            value={song.time} 
+            type="text" 
+            onChange={handleInput} />
         <br />
         <label htmlFor="is_favorite">Favorite:</label>
         <input
-          type="checkbox"
           id="is_favorite"
           value={song.is_favorite}
+          type="checkbox"
           onChange={handleCheckbox}
         />
         <br />

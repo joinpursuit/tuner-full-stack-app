@@ -16,7 +16,6 @@ const App = () => {
     <div className="App">
       <Router>
         <NavBar />
-      <h1>Tuner App</h1>
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/songs" element={<Index />} />
