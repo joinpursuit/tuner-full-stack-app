@@ -8,12 +8,13 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import axios from "axios";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const NewSong = () => {
+export const NewSong = ({ API }) => {
   const navigate = useNavigate();
   // Noticed useState could be done like this and am trying it out
   const [snackOpen, setSnackOpen] = React.useState(false);
@@ -22,7 +23,7 @@ export const NewSong = () => {
     artist: "",
     album: "",
     time: "",
-    is_favorite: false,
+    is_favorite: "false",
   });
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -39,11 +40,22 @@ export const NewSong = () => {
   };
   const addSong = () => {
     // Axios to come
-    console.log(song); // Getting good data
-    setSnackOpen(true);
-    setTimeout(() => {
-      navigate("/songs");
-    }, 3000);
+    try {
+      axios
+        .post(`${API}/songs`, song)
+        .then((res) => {
+          makeSong(res.data);
+        })
+        .then((res) => setSnackOpen(true))
+        .then((res) => {
+          setTimeout(() => {
+            navigate("/songs");
+          }, 3000); // Navigates after 3 seconds
+        });
+    } catch (error) {
+      console.log("Something's wrong " + error);
+      return error;
+    }
   };
   return (
     <div>

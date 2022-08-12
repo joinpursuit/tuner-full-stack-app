@@ -1,6 +1,6 @@
 const checkName = (req, res, next) => {
   console.log("name is being checked");
-  if (req.body.name) {
+  if (req.body.name.length !== 0) {
     console.log("Name! We've got Name here! See, no one cares. - Dennis Nedry");
     next();
   } else {
@@ -27,7 +27,7 @@ const checkBool = (req, res, next) => {
   ) {
     console.log("Parameters accepted");
     next();
-  } else {Ï
+  } else {
     res
       .status(400)
       .json({ error: "This is required to be a boolean value (or nothing)" });

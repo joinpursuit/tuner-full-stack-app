@@ -12,7 +12,7 @@ import axios from "axios";
           - Will need different methods for any others I may choose
             to implement
     - Edit button brings you to do songs individual edit page
-    - Set Snackbar to show after toggling favorite status
+    - Set Snackbar to show after toggling favorite status ✓
 */
 
 // MUI Imports
