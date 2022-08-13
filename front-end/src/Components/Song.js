@@ -1,19 +1,6 @@
-import Table from "react-bootstrap/Table";
-import Container from "react-bootstrap/Container";
-
 const Song = ({ song, id }) => {
   return (
-    <Container>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Fav</th>
-            <th>Song</th>
-            <th>Artist</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
+    <>
           <tr>
             <td>{song.is_favorite ? "⭐️" : null}</td>
             <td>
@@ -22,9 +9,8 @@ const Song = ({ song, id }) => {
             <td>{song.artist}</td>
             <td>{song.time}</td>
           </tr>
-        </tbody>
-      </Table>
-    </Container>
+    </>
+        
   );
 };
 

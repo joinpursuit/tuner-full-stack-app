@@ -1,5 +1,7 @@
 .Edit h1{
     text-align: center;
+    margin: 5px;
+    padding: 5px;
 }
 
 .Edit Button{
@@ -8,10 +10,16 @@
 
 .New h1{
     text-align: center;
+    margin: 5px;
+    padding: 5px;
 }
 
 .Index{
     text-align: center;
+}
+.Index h1{
+    margin: 5px;
+    padding: 5px;
 }
 
 .Songs a:link{
@@ -30,4 +38,27 @@
 
 .Home{
     text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+body{
+    background-color: pink;
+    font-family:cursive;
+}
+
+.Song-Details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Show{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Song-Details Button{
+    margin: 5px;
 }

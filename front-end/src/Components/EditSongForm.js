@@ -107,12 +107,12 @@ const EditSongForm = () => {
           </Form.Group>
 
           <Link to="/" >
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             Go Back
           </Button>
           </Link>
 
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             Submit
           </Button>
         </Form>

@@ -24,7 +24,7 @@ const SongDetails = () => {
       .then(() => {
         navigate(`/songs`);
       })
-      .catch((c) => console.error("catch", c));
+      .catch((err) => console.error(err));
   };
 
   const handleDelete = () => {
@@ -45,12 +45,12 @@ const SongDetails = () => {
             <br/>
           </Card.Text>
           <Link to={'/songs'}>
-          <Button variant="primary">Back</Button>
+          <Button variant="dark">Back</Button>
           </Link>
           <Link to={`/songs/${id}/edit`}>
-          <Button variant="primary">Edit</Button>
+          <Button variant="dark">Edit</Button>
           </Link>
-          <Button variant="primary" onClick={handleDelete}>Delete</Button>
+          <Button variant="dark" onClick={handleDelete}>Delete</Button>
         </Card.Body>
       </Card>
     </div>
