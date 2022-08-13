@@ -6,9 +6,14 @@ function NavBar() {
     <div>
       <Link to="/">HOME</Link>
       <br />
+      <br />
+
       <Link to="/songs">SONGS</Link>
       <br />
+      <br />
+
       <Link to="/songs/new">NEW</Link>
+      <br />
     </div>
   );
 }

@@ -73,13 +73,16 @@ function SongEditForm() {
           placeholder="Song Artist"
           onChange={handleTextChange}
         />
-         <h3>Favorite</h3>
+         <h3> Is Favorite</h3>
         <input
           id="favorite"
           value={song.is_favorite}
-          type="bool"
+          type="checkbox"
           placeholder="Favorite"
-          onChange={handleTextChange}
+        //   checked="true"
+        //   onClick={() =>!checked}
+
+        //   onChange={handleTextChange}
         />
         <h3>Song Time</h3>
         <input
