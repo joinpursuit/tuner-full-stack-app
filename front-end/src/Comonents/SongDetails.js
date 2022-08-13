@@ -54,10 +54,16 @@ function SongDetails() {
         <h3>{ song.name }</h3>
         <h4>{ song.artist }</h4>
         <h5>{ song.album }</h5>
-        <p>{ song.time }</p>
         <p>{ song.is_favorite}</p>
-        <button>Edit Song</button>
+        <p>{ song.time }</p>
+        <br />
+        <Link to={`/songs`}>
+        <button className="back-button">Back</button>
+      </Link>
         <button className='delete-button' onClick={handleDelete} >Delete Song</button>
+        <Link to={`/songs/${id}/edit`}>
+        <button className="edit-button">Edit</button>
+      </Link>
     </div>
   )
 }
