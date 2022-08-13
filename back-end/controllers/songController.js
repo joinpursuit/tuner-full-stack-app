@@ -73,7 +73,7 @@ songs.put('/:id', checkArtist, checkBoolean, checkName, async (req, res) => {
 	const { id } = req.params;
 	// updatedSong will either be a MASSIVE error object from SQL
 	// OR it will be a song with the keys and values we expected.
-	const updatedSong = await updateSong(req.body, id);
+	const updatedSong = await updateSong(id, req.body);
 	if (updatedSong.id) {
 		res.status(200).json(updatedSong);
 	} else {
