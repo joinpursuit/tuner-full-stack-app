@@ -3,10 +3,14 @@
 
 -- insert values to the columns of our tables
 INSERT INTO songs (name, artist, album, time, is_favorite) VALUES
-('Dont Stop Till You Get Enough', 'Michael Jackson', 'Off the Wall', '1979', true),
-('Good Morning Gorgeous', 'Mary J. Blige', 'Good Morning Gorgeous', '2022', true),
-('Right On', 'Lil Baby', 'Mix Tape', '2022', false),
-('Mixed Signals', 'Daniel John', 'Bad Connections', '2022', true);
+('Dont Stop Till You Get Enough', 'Michael Jackson', 'Off the Wall', '4:07', true),
+('Good Morning Gorgeous', 'Mary J. Blige', 'Good Morning Gorgeous', '2:55', true),
+('Right On', 'Lil Baby', 'Mix Tape', '3:36', false),
+('Mixed Signals', 'Daniel John', 'Bad Connections', '2:37', true);
+('Come Through', 'H.E.R', 'H.E.R', '3:57', true);
+('Feels Like Summer', 'Childish Gambino', 'Donald Glover', '4:46', true);
+('Shoot Out', 'Jadakiss', 'Mix Tape', '4:19', true);
+
 
 
 
