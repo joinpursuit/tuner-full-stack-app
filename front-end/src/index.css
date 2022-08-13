@@ -1,0 +1,33 @@
+.Edit h1{
+    text-align: center;
+}
+
+.Edit Button{
+    margin: 5px;
+}
+
+.New h1{
+    text-align: center;
+}
+
+.Index{
+    text-align: center;
+}
+
+.Songs a:link{
+    color: black;
+}
+.Songs a:hover{
+    color: blue;
+}
+.Songs a:visited{
+    color: purple;
+}
+
+.App{
+    cursor: pointer;
+}
+
+.Home{
+    text-align: center;
+}

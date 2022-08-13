@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -37,50 +40,69 @@ const NewSongForm = () => {
 
   return (
     <div className="New">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Song Name:</label>
-        <input
-          id="name"
-          value={song.name}
-          type="text"
-          onChange={handleInput}
-          required
-        />
-        <br />
-        <label htmlFor="artist">Artist:</label>
-        <input
-          id="artist"
-          value={song.artist}
-          type="text"
-          onChange={handleInput}
-          required
-        />
-        <br />
-        <label htmlFor="album">Album:</label>
-        <input
-          id="album"
-          value={song.album}
-          type="text"
-          onChange={handleInput}
-        />
-        <br />
-        <label htmlFor="time">Time:</label>
-        <input 
-            id="time" 
-            value={song.time} 
-            type="text" 
-            onChange={handleInput} />
-        <br />
-        <label htmlFor="is_favorite">Favorite:</label>
-        <input
-          id="is_favorite"
-          value={song.is_favorite}
-          type="checkbox"
-          onChange={handleCheckbox}
-        />
-        <br />
-        <input type="submit" />
-      </form>
+      <Container>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Song Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="..."
+              id="name"
+              value={song.name}
+              onChange={handleInput}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Artist</Form.Label>
+            <Form.Control
+              id="artist"
+              value={song.artist}
+              type="text"
+              placeholder="..."
+              onChange={handleInput}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Album</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="..."
+              id="album"
+              value={song.album}
+              onChange={handleInput}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Time</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="..."
+              id="time"
+              value={song.time}
+              onChange={handleInput}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
+              type="checkbox"
+              label="Favorite"
+              id="is_favorite"
+              value={song.is_favorite}
+              onChange={handleCheckbox}
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit" >
+            Submit
+          </Button>
+        </Form>
+      </Container>
     </div>
   );
 };
