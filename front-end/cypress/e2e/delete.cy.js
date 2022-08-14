@@ -35,7 +35,7 @@ describe("Show Page", () => {
     });
 
     it("that deletes the item and redirects to index page", () => {
-      cy.wait(1000); // gives us a chance to see the show page before deleting and redirecting
+      cy.wait(4000); // gives us a chance to see the show page before deleting and redirecting
       cy.get("button")
         .contains("Delete")
         .click()
