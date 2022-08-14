@@ -7,7 +7,7 @@ const {
   getASong,
   createSong,
   deleteSong,
-  updateSong,
+  updateASong,
 } = require("../queries/songs");
 
 // Index of all listed Songs
@@ -49,6 +49,7 @@ songs.post("/new", (req, res) => {
 
 songs.delete("/:id", async (req, res) => {
   const { id } = req.params;
+  console.log('Deletion ID:', id)
   const deletedSong = await db.one(
     "DELETE FROM song WHERE id=$1 RETURNING *",
     id
@@ -61,8 +62,9 @@ songs.delete("/:id", async (req, res) => {
 });
 
 songs.put("/:id", async (req, res) => {
+  console.log('Put:', req.body, req.params.id)
   try {
-    const song = await updateSong(req.params.id, req.body);
+    const song = await updateASong(req.params.id, req.body);
     res.json(song);
   } catch (error) {
     res.status(400).json({ error: error });

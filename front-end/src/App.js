@@ -3,6 +3,7 @@ import Songs from './Components/songs'
 import Home from './Components/Home'
 import IndividualTrack from './Components/IndividualTrack';
 import EditTrack from './Components/EditTrack'
+import NewTrack from './Components/NewTrack';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='/songs' element={<Songs/>}/>
           <Route path='/songs/:id' element={<IndividualTrack/>}/>
           <Route path='/songs/edit' element={<EditTrack/>}/>
+          <Route path='/new' element={<NewTrack/>}/>
         </Routes>
       </Router>
       <h5>Tuner App</h5>

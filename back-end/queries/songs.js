@@ -41,9 +41,11 @@ const getAllSongs = async () => {
   };
   
   const updateASong = async (id, { name, artist, album, time, is_favorite }) => {
+    console.log('This is the ID:', id)
+    console.log('Data:', name, artist, album, time, is_favorite)
     try {
       const updatedSong = await db.one(
-        "UPDATE songs SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6 RETURNING *",
+        "UPDATE song SET name=$1, artist=$2, album=$3, time=$4, is_favorite=$5 WHERE id=$6 RETURNING *",
         [name, artist, album, time, is_favorite, id]
       );
       return updatedSong;

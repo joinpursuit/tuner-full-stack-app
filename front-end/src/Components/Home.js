@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Home() {
     return (
         <div>
@@ -5,6 +7,7 @@ function Home() {
             <h3>Store tracks from your favorite artists!</h3>
             <h3>Edit Track Info and save your Favorites!</h3>
             <h5>Please, enjoy!</h5>
+            <Link to='/songs'>Song Listings</Link>
         </div>
     )
 }

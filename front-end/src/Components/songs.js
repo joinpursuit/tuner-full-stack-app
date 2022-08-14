@@ -20,7 +20,19 @@ function Songs() {
   }, []);
   console.log(songs);
 
-
+const handleDelete = (event) => {
+    event.preventDefault();
+    //goes to backend to delete 
+    const { id } = event.target
+    console.log('HandleDelete:', id)
+    const API = process.env.REACT_APP_API_URL
+    axios.delete(`${API}/songs/${id}`)
+    .then((respone) => {
+        setSongs(songs.filter((song) => {
+            return song.id !== parseInt(id) 
+        }))
+    })
+}
   return (
     <div className="songs-list">
       <h1>Welcome to the Song Index</h1>
@@ -33,9 +45,12 @@ function Songs() {
             <h4>{song.time}</h4>
             <h4>{song.is_favorite ? 'Yes' : 'No'}</h4>
             <Link to={`/songs/${song.id}`}>Track Details</Link>
+            <button id={song.id} onClick={handleDelete}>Delete Track</button>
           </div>
         );
       })}
+      <br></br>
+      <Link to='/new'>New Track</Link>
     </div>
   );
 }
