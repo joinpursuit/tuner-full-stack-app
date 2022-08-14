@@ -1,0 +1,12 @@
+  * {
+    background-color: #b76e79;
+    font-family: sans-serif;
+    color: blanchedalmond;
+    font-style: italic;
+  }
+
+  navbar {
+   flex: auto;
+    flex-align: center;
+    flex-direction: row;
+  }
