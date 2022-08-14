@@ -1,0 +1,25 @@
+table {
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+thead th {
+  width: 25%;
+}
+
+.Songs caption {
+	size: large;
+}
+
+.new-song {
+	margin-top: 3%;
+	padding: 1%;
+	position: fixed;
+}
+

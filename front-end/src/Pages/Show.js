@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import SongDetails from '../Components/SongDetails';
+
 
 function Show() {
   return (
-    <div>Show</div>
+    <div className="Song-Details">
+      <h1>Show</h1>
+      <SongDetails />
+    </div>
   )
 }
 
