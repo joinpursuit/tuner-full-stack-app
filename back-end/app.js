@@ -1,19 +1,22 @@
 // DEPENDENCIES
 const cors = require("cors");
+// TURN SERVER ON 
 const express = require("express");
 
 // CONFIGURATION
 const app = express();
 
 // MIDDLEWARE - above the CONTROLLER!
+// STEP 3
 app.use(cors());
+// STEP 2 client makes request USE express 
 app.use(express.json());
 
 
-// Song ROUTES
+// user makes request use data from songsController
 const songsController = require("./controllers/songController");
 
-// 
+// calling the 
 app.use("/songs", songsController);
 
 

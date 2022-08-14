@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 
 import { useState } from "react";
 import axios from "axios";
@@ -16,13 +16,13 @@ function SongNewForm() {
     time: "",
   });
   const navigate = useNavigate();
+  
 
-  // click on a button take me t
   const newSong = () => {
     axios
       .post(`${API}/songs`, song)
       .then((res) => {
-        navigate(`/songs`);
+        setSong(res.data);
       })
       .catch((error) => console.error(error));
   };
@@ -69,9 +69,9 @@ function SongNewForm() {
           <input
             id="favorite"
             value={song.is_favorite}
-            type="text"
-            placeholder="Favorite"
-            onChange={handleTextChange}
+            type="checkbox"
+            // placeholder="Favorite"
+            // onChange={handleTextChange}
           />
           <br></br>
           <h3>Time</h3>

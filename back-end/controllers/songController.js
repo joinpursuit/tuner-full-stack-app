@@ -1,7 +1,7 @@
 // invoke express
 const express = require("express");
 
-// creates the server route for songs
+// creates the server route for songs to EXPORT
 const songs = express.Router();
 const { getAllSongs, getSong, createSong, deleteSong, updateSong } = require("../queries/songs");
 
@@ -10,7 +10,7 @@ const { checkName, checkBoolean, checkArtist  } = require("../validations/checkS
 
 // routes to specific data
 
-// INDEX
+// INDEX - for this route(data) use this function
 songs.get("/", async (req, res) => {
   const allSongs = await getAllSongs();
   if (allSongs[0]) {
@@ -20,7 +20,7 @@ songs.get("/", async (req, res) => {
   }
 });
 
-// SHOW
+// SHOW - for this route(data) use this function
 songs.get("/:id", async (req, res) => {
   const { id } = req.params;
   const song = await getSong(id);
@@ -31,7 +31,7 @@ songs.get("/:id", async (req, res) => {
   }
 });
 
-// CREATE
+// CREATE - for this route(data) use this function
 songs.post("/",checkName,checkBoolean, checkArtist, async (req, res) => {
   console.log(req);
   try {
@@ -42,7 +42,7 @@ songs.post("/",checkName,checkBoolean, checkArtist, async (req, res) => {
   }
 });
 
-// DELETE
+// DELETE - for this route(data) use this function
 songs.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedSong = await deleteSong(id);
@@ -53,9 +53,11 @@ songs.delete("/:id", async (req, res) => {
   }
 });
 
-// UPDATE
-songs.put("/:id", checkName, checkBoolean, checkArtist, async (req, res) => {
+// UPDATE - for this route(data) use this function
+songs.put("/:id", checkName, checkArtist, async (req, res) => {
   const { id } = req.params;
+  // console.log(id)
+  // console.log(req.body)
   const updatedSong = await updateSong(id, req.body);
   if (updatedSong.id) {
     res.status(200).json(updatedSong);

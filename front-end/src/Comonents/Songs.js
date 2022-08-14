@@ -1,8 +1,12 @@
+// import dependancies to the INDEX page 
 import React from 'react'
 import {useState, useEffect } from 'react'
 import axios from 'axios'
+
+// import Song child component 
 import Song from './Song'
 
+// create an API attached to .env PORT to communicate 
 const API = process.env.REACT_APP_API_URL
 
 function Songs() {
