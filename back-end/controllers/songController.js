@@ -1,6 +1,10 @@
 const express = require("express");
 // const { errors } = require("pg-promise");
 const songs = express.Router();
+
+const reviewsController = require("./reviewsController.js");
+bookmarks.use("/:songId/reviews", reviewsController);
+
 const {
   getAllSongs,
   getSong,

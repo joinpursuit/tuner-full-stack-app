@@ -1,24 +1,14 @@
+import React from "react";
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function SongNewForm() {
+
+function EditSongForm() {
+  let { id } = useParams();
   let navigate = useNavigate();
-
-  const addSong = (newSong) => {
-    axios
-      .post(`${API}/songs`, newSong)
-      .then(
-        () => {
-          navigate(`/songs`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
-
   const [song, setSong] = useState({
     name: "",
     artist: "",
@@ -26,19 +16,36 @@ function SongNewForm() {
     time: "",
     is_favorite: false,
   });
-
+  
+  const updateSong = (updatedSong) => {
+    axios
+      .put(`${API}/songs/${id}`, updatedSong)
+      .then(
+        () => {
+          navigate(`/songs/${id}`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((err) => console.log.warn("catch", err));
+  };
   const handleTextChange = (event) => {
     setSong({ ...song, [event.target.id]: event.target.value });
   };
-
   const handleCheckboxChange = () => {
     setSong({ ...song, is_favorite: !song.is_favorite });
   };
 
+  useEffect(() => {
+    axios.get(`${API}/songs/${id}`)
+    .then((response) => 
+      setSong(response.data), (error) => navigate(`/not-found`)
+    )
+  }, [id]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSong(song);
-  };
+    updateSong(song);
+ };
 
   return (
     <div className="New">
@@ -49,16 +56,15 @@ function SongNewForm() {
           value={song.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Name of Song"
+          placeholder="Song name"
           required
         />
         <label htmlFor="artist">Artist:</label>
         <input
           id="artist"
           type="text"
-          required
           value={song.artist}
-          placeholder="Artist"
+          placeholder="name of artist"
           onChange={handleTextChange}
         />
         <label htmlFor="album">Album:</label>
@@ -67,16 +73,7 @@ function SongNewForm() {
           type="text"
           name="album"
           value={song.album}
-          placeholder="Album"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="time">Time:</label>
-        <input
-          id="time"
-          type="text"
-          name="time"
-          value={song.time}
-          placeholder="Time"
+          placeholder="name of album"
           onChange={handleTextChange}
         />
         <label htmlFor="is_favorite">Favorite:</label>
@@ -86,12 +83,14 @@ function SongNewForm() {
           onChange={handleCheckboxChange}
           checked={song.is_favorite}
         />
-
         <br />
         <input type="submit" />
       </form>
-    </div>
-  );
+      <Link to={`/songs/${id}`}>
+        <button>Nevermind!</button>
+      </Link>
+      </div>
+      );
 }
 
-export default SongNewForm;
+export default EditSongForm;

@@ -1,55 +1,56 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import Reviews from "./Reviews";
+// import Reviews from "./Reviews";
 
-function BookmarkDetails() {
-  const [bookmark, setBookmark] = useState([]);
+function SongDetails() {
+  const [song, setSong] = useState([]);
   let { id } = useParams();
   let navigate = useNavigate();
   const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    axios.get(`${API}/bookmarks/${id}`).then((response) => {
-      setBookmark(response.data);
+    axios.get(`${API}/songs/${id}`).then((response) => {
+      setSong(response.data);
     });
   }, [id, navigate, API]);
-  const deleteBookmark = () => {
+  
+  const deleteSong = () => {
     axios
-      .delete(`${API}/bookmarks/${id}`)
+      .delete(`${API}/songs/${id}`)
       .then(() => {
-        navigate(`/bookmarks`);
+        navigate(`/songs`);
       })
       .catch((c) => console.error("catch", c));
   };
   const handleDelete = () => {
-    deleteBookmark();
+    deleteSong();
   };
-  
+
   return (
     <>
       <article>
         <h3>
-          {bookmark.is_favorite ? <span>⭐️</span> : null} {bookmark.name}
+          {song.is_favorite ? <span>⭐️</span> : null} {song.name}
         </h3>
         <h5>
           <span>
-            <a href={bookmark.url}>{bookmark.name}</a>
+            <a href={song.url}>{song.name}</a>
           </span>{" "}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {bookmark.url}
+          {song.url}
         </h5>
-        <h6>{bookmark.category}</h6>
-        <p>{bookmark.description}</p>
+        <h6>{song.category}</h6>
+        <p>{song.description}</p>
         <div className="showNavigation">
           <div>
             {" "}
-            <Link to={`/bookmarks`}>
+            <Link to={`/songs`}>
               <button>Back</button>
             </Link>
           </div>
           <div>
-            <Link to={`/bookmarks/${id}/edit`}>
+            <Link to={`/songs/${id}/edit`}>
               <button>Edit</button>
             </Link>
           </div>

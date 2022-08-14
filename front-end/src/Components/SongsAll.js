@@ -4,19 +4,14 @@ import Song from "./Song";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Songs() {
-  const [songs, setSongs] = useState([]);
+function SongsAll() {
+  const [songs, setSongs] = useState([])
   useEffect(() => {
     axios
       .get(`${API}/songs`)
-      .then((response) => {
-        setSongs(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((response) => setSongs(response.data))
+      .catch((c) => console.warn("catch", c));
   }, []);
-
   return (
     <div className="Songs">
       <section>
@@ -25,7 +20,7 @@ function Songs() {
             <tr>
               <th></th>
               <th>Take me there</th>
-              <th>See this song</th>
+              <th>See Song details</th>
             </tr>
           </thead>
           <tbody>
@@ -39,4 +34,5 @@ function Songs() {
   );
 }
 
-export default Songs;
+export default SongsAll;
+
