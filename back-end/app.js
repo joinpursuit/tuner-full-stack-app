@@ -2,12 +2,12 @@ const express = require('express');
 const cors = require("cors");
 const app = express();
 
+app.use(express.json());
+app.use(cors());
+
 // Connecting the controller file - pt 1
 
 const songController = require("./controllers/songController.js");
-
-app.use(express.json());
-app.use(cors());
 
 // Connecting the controller file - pt 2
 app.use('/songs', songController);
