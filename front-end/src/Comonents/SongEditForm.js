@@ -15,8 +15,18 @@ function SongEditForm() {
     name: "",
     artist: "",
     time: "",
-    is_favorite: "",
+    is_favorite: false,
+    
   });
+
+  const handleTextChange = (event) => {
+  
+    setSong({ ...song, [event.target.id]: event.target.value });
+  };
+
+  const handleCheckbox = () => {
+    setSong({ ...song, is_favorite: !song.is_favorite });
+  };
 
   useEffect(() => {
     axios
@@ -25,43 +35,20 @@ function SongEditForm() {
       .catch((error) => console.error(error));
   }, [id]);
 
-  const handleTextChange = (event) => {
-    // console.log("WHAT IS THIS-----------")
   
-    setSong({ ...song, [event.target.id]: event.target.value });
-  };
-//   SUBMIT HAS AN ERROR --------------------
-  // const editSong = (updateSong) => {
-  //   console.log("WHAT IS THIS")
-  //   axios
-  //     .put(`${API}/songs/${id}`, updateSong)
-  //     .then((res) => {
-  //       // setSong(res.data);
-  //       navigate(`/songs`);
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
 
   const editSong = (updatedSong) => {
     console.log(updatedSong)
     axios.put(`${API}/songs/${id}`, updatedSong)
       .then(() => {
-        console.log("hello!")
         navigate(`/songs/${id}`)
       },
-      (error) => console.error(error, "!!!")
+      (error) => console.error(error,)
       )
       .catch((c) => console.warn("catch", c)) 
   };
 
 
-//   const handleNumberChange = (event) => {
-//     setSong({
-//       ...song,
-//       [event.target.id]: Number(event.target.value),
-//     });
-//   };
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     editSong(song);
@@ -72,6 +59,13 @@ function SongEditForm() {
     <fieldset>
       <h1>Edit Song</h1>
       <form onSubmit={handleSubmit}>
+      <h3> Is Favorite</h3>
+      <input
+          id="is_favorite"
+          type="checkbox"
+          onChange={handleCheckbox}
+          checked={song.is_favorite}
+        />
         <h3>Song Name</h3>
         <input
           id="name"
@@ -88,18 +82,15 @@ function SongEditForm() {
           placeholder="Song Artist"
           onChange={handleTextChange}
         />
-         <h3> Is Favorite</h3>
+        <h3>Song Album</h3>
         <input
-          id="is_favorite"
-          value={song.is_favorite}
-          type="checkbox"
-          placeholder="Favorite"
-          required
-        //   checked="true"
-        //   onClick={() =>!checked}
-
-        //   onChange={handleTextChange}
+          id="album"
+          value={song.album}
+          type="text"
+          placeholder="Song Album"
+          onChange={handleTextChange}
         />
+         
         <h3>Song Time</h3>
         <input
           id="time"

@@ -22,7 +22,8 @@ function SongNewForm() {
     axios
       .post(`${API}/songs`, song)
       .then((res) => {
-        setSong(res.data);
+        setSong(res.data)
+        navigate(`/songs`);
       })
       .catch((error) => console.error(error));
   };
@@ -31,11 +32,11 @@ function SongNewForm() {
     setSong({ ...song, [e.target.id]: e.target.value });
   };
 
-//   const handleNumberChange = (e) => {
-//     setSong({ ...song, [e.target.id]: Number(e.target.value) });
-//   };
+  const handleCheckbox = () => {
+    setSong({ ...song, is_favorite: !song.is_favorite });
+  };
 
-// SUBMIT HAS AN ERROR -------------------------
+
   const handleSubmit = (e) => {
     e.preventDefault();
     newSong();
@@ -46,6 +47,14 @@ function SongNewForm() {
       <fieldset>
         <form onSubmit={handleSubmit}>
           <h1>Add A Song</h1>
+          <br></br>
+          <h3>Favorite</h3>
+          <input
+          id="is_favorite"
+          type="checkbox"
+          onChange={handleCheckbox}
+          checked={song.is_favorite}
+           />
           <br></br>
           <h3>Name</h3>
           <input
@@ -74,19 +83,7 @@ function SongNewForm() {
             onChange={handleTextChange}
           />
           <br></br>
-          <h3>Favorite</h3>
-            <input  id="favorite" value={song.is_favorite} type="checkbox" />
-            {/* <input type="checkbox" /> */}
-
-            {/* <input
-            id="favorite"
-            value={song.is_favorite}
-            type="checkbox" */}
-            {/* // placeholder="Favorite"
-            // onChange={handleTextChange} */}
-          {/* /> */}
-
-          <br></br>
+          
           <h3>Time</h3>
           <input
             id="time"

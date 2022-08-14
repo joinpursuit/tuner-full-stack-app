@@ -5,11 +5,11 @@ function Song({song}) {
 
   return (
     <div>
-        <h3>{song.name}</h3>
+    <h3>{song.is_favorite ? <span>🔥 </span> : null} {song.name}</h3>
+        <h4>{song.name}</h4>
         <p>{song.artist}</p>
         <p>{song.time}</p>
         <p>{song.album}</p>
-        <p>{song.is_favorite}</p>
         <Link to={`/songs/${song.id}`}>See More Details...</Link>
 
     </div>
