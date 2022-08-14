@@ -12,7 +12,7 @@ function SongNewForm() {
     name: "",
     artist: "",
     album: "",
-    is_favorite: "",
+    is_favorite: false,
     time: "",
   });
   const navigate = useNavigate();
@@ -75,13 +75,17 @@ function SongNewForm() {
           />
           <br></br>
           <h3>Favorite</h3>
-          <input
+            <input  id="favorite" value={song.is_favorite} type="checkbox" />
+            {/* <input type="checkbox" /> */}
+
+            {/* <input
             id="favorite"
             value={song.is_favorite}
-            type="checkbox"
-            // placeholder="Favorite"
-            // onChange={handleTextChange}
-          />
+            type="checkbox" */}
+            {/* // placeholder="Favorite"
+            // onChange={handleTextChange} */}
+          {/* /> */}
+
           <br></br>
           <h3>Time</h3>
           <input

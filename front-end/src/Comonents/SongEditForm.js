@@ -26,7 +26,7 @@ function SongEditForm() {
   }, [id]);
 
   const handleTextChange = (event) => {
-    console.log("WHAT IS THIS-----------")
+    // console.log("WHAT IS THIS-----------")
   
     setSong({ ...song, [event.target.id]: event.target.value });
   };
