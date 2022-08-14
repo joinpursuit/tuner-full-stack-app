@@ -45,7 +45,7 @@ function SongNewForm() {
     <div className="new">
       <fieldset>
         <form onSubmit={handleSubmit}>
-          <h2>Add A Song</h2>
+          <h1>Add A Song</h1>
           <br></br>
           <h3>Name</h3>
           <input
@@ -62,6 +62,15 @@ function SongNewForm() {
             value={song.artist}
             type="text"
             placeholder="Artist"
+            onChange={handleTextChange}
+          />
+          <br></br>
+          <h3>Album</h3>
+          <input
+            id="album"
+            value={song.album}
+            type="text"
+            placeholder="Album"
             onChange={handleTextChange}
           />
           <br></br>

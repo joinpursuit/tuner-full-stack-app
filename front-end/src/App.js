@@ -15,6 +15,7 @@ function App() {
     <Router>
       <div className="">
         <NavBar />
+        <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/songs" element={<Songs />} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="songs/:id/edit" element={<SongEditForm />}/>
           <Route path='/songs/new' element={<SongNewForm />}/>
         </Routes>
+        </main>
       </div>
     </Router>
   );
