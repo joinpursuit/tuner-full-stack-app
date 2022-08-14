@@ -1,11 +1,12 @@
 const express = require("express");
 const songs = express.Router();
+const reviewsController = require("./reviewsController.js");
 const { 
   getAllSongs, 
   getSong, 
   createSong, 
   deleteSong, 
-  updateSong } = require("../queries/songs");
+  updateSong } = require("../queries/songs.js");
 
 const { 
   checkName, 
@@ -14,6 +15,9 @@ const {
   checkId,
   checkTime,
  } = require("../validations/checkSongs.js");
+
+ songs.use("/:songId/reviews", reviewsController);
+
 //index
 songs.get("/", async (req, res) => {
 

@@ -13,3 +13,17 @@ INSERT INTO songs (name, artist, album, time, is_favorite) VALUES
 ('The Whistle Song', 'Frankie Knuckles', 'Beyond the Mix', '6:57', true),
 ('Idiosyncracy', 'Osunlade', 'Pyrography', '5:06', true),
 ('Jugando Con Fuego, Pt.2', 'Mr. Hermano', 'Free as the Morning Sun', '8:39', true);
+
+INSERT INTO reviews (song_id, reviewer, title, content, rating) VALUES 
+('1', 'Chris', 'All time favorite', 'it is a wonderful world', 4),
+('1', 'Rita', 'My favorite', 'this song just makes you fall in love with the world', 5),
+('1', 'Amy', 'All time favorite', 'makes me happy', 4),
+('2', 'Chris', 'top of favs', 'super groovy', 4),
+('3', 'Joe', 'All time favorite', 'so full of passion! gets me going!', 4),
+('4', 'Chris', 'old school favorite', 'feels like sitting drinking some chill tea on a hoy day!', 4),
+('8', 'Rita', 'Timeless classic', 'love, love , love', 4),
+('9', 'Amy', 'top on my list', 'not played snough but just so beautiful', 4),
+('8', 'Chris', 'Classic', 'best of dancing times', 4),
+('4', 'Joe', 'Summer fav', 'so happy n groovy', 4);
+
+
