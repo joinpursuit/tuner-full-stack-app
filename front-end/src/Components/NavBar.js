@@ -5,9 +5,12 @@ export default function NavBar() {
   return (
     <div className='NavBar'>
       <nav>
-        <Link to='/'><h1 className='tuner'>Tuner App</h1></Link>
-        <button className='songButton'><Link to='/songs'><h1>Songs</h1></Link></button>
-        <button className='newButton'><Link to='/songs/new'><h1>New Song</h1></Link> </button>
+        <Link to='/'><h1>Tuner App</h1></Link>
+        <div className='right'>
+          <button className='songButton'><Link to='/songs'>Songs</Link></button>
+        <button className='newButton'><Link to='/songs/new'>New Song</Link> </button>
+        </div>
+        
       </nav>
     </div>
   )
