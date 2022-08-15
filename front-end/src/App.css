@@ -3,7 +3,7 @@ div {
     background-image: url(https://cdn.shopify.com/s/files/1/0011/6005/2795/articles/169_4c9160bf-e531-4ab1-a6a0-761b0008c06e.jpg?v=1629206511);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     height: 500px;
 }
 

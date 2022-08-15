@@ -21,7 +21,6 @@ function EditTrack() {
       .put(`${API}/songs/${id}`, updatedSong)
       .then(
         () => {
-          setSongs(updatedSong)
           navigate(`/songs`);
         },
         (error) => console.error(error)
