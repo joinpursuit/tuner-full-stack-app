@@ -5,6 +5,7 @@ function Song({song}) {
 
   return (
     <div>
+    <header>Tuner</header>
     <h3>{song.is_favorite ? <span>🔥 </span> : null} {song.name}</h3>
         <h4>{song.name}</h4>
         <p>{song.artist}</p>
