@@ -4,11 +4,14 @@ import Home from './Components/Home'
 import IndividualTrack from './Components/IndividualTrack';
 import EditTrack from './Components/EditTrack'
 import NewTrack from './Components/NewTrack';
+import NavBar from './Components/NavBar';
+import './App.css'
 
 function App() {
   return (
     <div className="">
       <Router>
+        <NavBar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/songs' element={<Songs/>}/>

@@ -1,0 +1,26 @@
+div {
+    text-align: center;
+    background-image: url(https://cdn.shopify.com/s/files/1/0011/6005/2795/articles/169_4c9160bf-e531-4ab1-a6a0-761b0008c06e.jpg?v=1629206511);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+h1, h2, h3, h4 {
+    font-size: larger;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label {
+    background-color:#b2071d;
+    border: none;
+    color: white;
+    margin: 15px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(213, 69, 29, 0.4);
+}
