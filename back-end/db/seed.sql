@@ -18,4 +18,14 @@ INSERT INTO songs (name, artist, album, time, is_favorite) VALUES
 -- VALUES
 -- ('1', 'Kim', 'My favorite', 'this site is cool',)
 
--- -- in the terminal run psql -U postgres -f db/schema.sql ... \c bookmarks_dev ... \dt (display all tables)
+
+-- INSERT INTO users  (username, email,admin, verified)
+-- VALUES
+-- (Kim', gmemonei@gmail.com, true, true,)
+
+-- INSERT INTO users_bookmars (bookmark_id, user_id)
+-- VALUES
+-- (1,1),
+-- (2,1)
+
+-- -- in the terminal run psql -U postgres -f db/schema.sql ... psql -U postgres -f db/seed.sql ... \c bookmarks_dev ... \dt (display all tables)

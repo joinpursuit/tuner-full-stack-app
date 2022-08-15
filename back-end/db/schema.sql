@@ -31,5 +31,25 @@ CREATE TABLE songs (
 --     bookmark_id INTEGER REFERENCES bookmarks (id) --- FOREIGN KEY (REFERENCES)
 --     ON DELETE CASCADE --- if bookmark id is deleted also delete it's reviews
 -- );
--- in the terminal run psql -U postgres -f db/schema.sq .... \q
-\r
+-- in the terminal run psql -U postgres -f db/schema.sql .... \q
+
+
+-- CREATE A user TABLE TO ESTABLISH MANY TO MANY
+-- The Intranet is a Bookmark that would have many to many relationship
+-- DROP TABLE IF EXISTS user;
+-- CREATE TABLE user (
+--     id SERIAL PRIMARY KEY,
+--     username TEXT UNIQUE NOT NULL, --- user name must not be used and not blank
+--     email TEXT UNIQUE NOT NULL,
+--     admin BOOLEAN DEFAULT false ,
+--     verified TEXT,
+--     CHECK (rating >= 0 AND rating <=5),
+--     bookmark_id INTEGER REFERENCES bookmarks (id) --- FOREIGN KEY (REFERENCES)
+--     ON DELETE CASCADE --- if bookmark id is deleted also delete it's reviews
+
+-- users to bookmarks in common GITHUB is a bookmark used by several users
+-- CREATE TABLE users_bookmarks (
+--     bookmark_id INTEGER NOT NULL,
+--     user_id INTERGER NOT NULL,
+--     created TIMESTAMP DEFAULT NOW() 
+-- )
