@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
-
+import './songs.css'
 
 function Songs() {
   const [songs, setSongs] = useState([]);
@@ -44,7 +44,7 @@ const handleDelete = (event) => {
             <h3>{song.album}</h3>
             <h4>{song.time}</h4>
             <h4>{song.is_favorite ? 'Yes' : 'No'}</h4>
-            <Link to={`/songs/${song.id}`}>Track Details</Link>
+            <Link className='track-link'to={`/songs/${song.id}`}>Track Details</Link>
             <br></br>
             <button id={song.id} onClick={handleDelete}>Delete Track</button>
           </div>
