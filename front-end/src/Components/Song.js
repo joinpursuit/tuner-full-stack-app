@@ -4,7 +4,7 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Song({ song }) {
   return (
-    <tr>
+    <tr class="Song">
       <td class="Songs">
         {song.is_favorite ? (
           <span>⭐️</span>

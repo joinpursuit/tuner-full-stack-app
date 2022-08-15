@@ -7,8 +7,8 @@ export default function NavBar() {
       <h1>
         <Link to="/songs">TUNER APP</Link>
       </h1>
-      <button>
-        <Link to="/songs/new">New Song</Link>
+      <button class="nav-button">
+        <Link to="/songs/new" class="nav-link">New Song</Link>
       </button>
     </nav>
   );

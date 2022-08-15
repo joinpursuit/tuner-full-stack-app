@@ -16,11 +16,10 @@ export default function SongDetails() {
 
   return (
     <div class="Song-Details">
-      <h1>Tuner</h1>
-      <h2 class="Song-Details">{song.is_favorite ? <span>⭐️</span> : null } {song.name}</h2>
-      {/* <h2 class="Song-Details">{song.name}</h2> */}
-      <p class="Song-Details">{song.artist}</p>
-      <p class="Song-Details">{song.time}</p>
+      <h2>Tuner</h2>
+      <h3>{song.is_favorite ? <span>⭐️</span> : null } {song.name}</h3>
+      <h4>{song.artist}</h4>
+      <h6>{song.time}</h6>
     </div>
   )
 }
