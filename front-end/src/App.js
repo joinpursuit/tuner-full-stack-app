@@ -1,10 +1,12 @@
 // import all Components to App.js
-import Home from "./Comonents/Home";
 import NavBar from "./Comonents/NavBar";
-import Songs from "./Comonents/Songs";
-import SongDetails from "./Comonents/SongDetails";
-import SongEditForm from "./Comonents/SongEditForm";
-import SongNewForm from "./Comonents/SongNewForm";
+
+import Home from "./Pages/Home"
+import Index from "./Pages/Index"
+import Show from "./Pages/Show"
+import Edit from "./Pages/Edit"
+import New from "./Pages/New"
+import FourOFour from "./Pages/FourOFour"
 
 // enable dynamic routes to resourses 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -18,10 +20,11 @@ function App() {
         <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/songs" element={<Songs />} />
-          <Route path="/songs/:id" element={<SongDetails/>} />
-          <Route path="songs/:id/edit" element={<SongEditForm />}/>
-          <Route path='/songs/new' element={<SongNewForm />}/>
+          <Route path="/songs" element={<Index />} />
+          <Route path="/songs/:id" element={<Show/>} />
+          <Route path="songs/:id/edit" element={<Edit />}/>
+          <Route path='/songs/new' element={<New />}/>
+          <Route path="*" element={<FourOFour />} /> 
         </Routes>
         </main>
       </div>
