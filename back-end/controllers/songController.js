@@ -9,10 +9,8 @@ const {
 } = require("../queries/songs.js");
 const {
   checkName,
-  checkBoolean,
   checkArtist,
   checkId,
-  checkTime,
 } = require("../validations/checksongs");
 
 songs.get("/", async (req, res) => {
@@ -36,7 +34,7 @@ songs.get("/:id", checkId, async (req, res) => {
   }
 });
 
-songs.post("/", checkName, checkBoolean, checkArtist, async (req, res) => {
+songs.post("/", checkName, checkArtist, async (req, res) => {
   try {
     const song = await createSong(req.body);
     res.json(song);
@@ -46,7 +44,7 @@ songs.post("/", checkName, checkBoolean, checkArtist, async (req, res) => {
 });
 
 
-songs.put('/:id', checkName, checkBoolean, checkArtist, async (req, res) => {
+songs.put('/:id', checkName, checkArtist, async (req, res) => {
   const { id } = req.params;
   const updatedSong = await updateSong(req.body, id);
   if(updatedSong.id) {
