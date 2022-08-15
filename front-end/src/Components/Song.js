@@ -5,20 +5,20 @@ const API = process.env.REACT_APP_API_URL;
 export default function Song({ song }) {
   return (
     <tr>
-      <td>
+      <td class="Songs">
         {song.is_favorite ? (
           <span>⭐️</span>
         ) : (
           <span>&nbsp; &nbsp; &nbsp;</span>
         )}
       </td>
-      <td>
+      <td class="Song">
         <p>{song.name}</p>
       </td>
-      <td>
+      <td class="Songs">
         <p>{song.artist}</p>
       </td>
-      <td>
+      <td class="Songs">
         <p>{song.time}</p>
       </td>
     </tr>

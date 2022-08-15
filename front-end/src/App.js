@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Index from "./Pages/Index";
+import Show from "./Pages/Show";
 
 import NavBar from "./Components/NavBar";
 
@@ -17,6 +18,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/songs" element={<Index />} />
+            <Route path="/songs/:id" element={<Show />} />
           </Routes>
         </main>
       </Router>
