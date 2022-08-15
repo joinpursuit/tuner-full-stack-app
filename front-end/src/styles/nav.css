@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #E8C7C8;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .link {
+    text-decoration: none;
+    font-size: 75px;
+    padding-right: 150px;
+    
+  }

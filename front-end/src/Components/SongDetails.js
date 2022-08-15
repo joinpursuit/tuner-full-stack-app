@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from 'axios' 
+import "../styles/details.css"
 
 const API = process.env.REACT_APP_API_URL
 
@@ -15,33 +16,30 @@ function SongDetails() {
         .catch(err => console.error(err))
     }, [id])
    
-    // const handleDelete = (id) => {
-    //     axios.delete(`${API}/songs/${id}`)
-    //     .then(res => navigate(`/songs`))
-    //     .catch(err => console.error(err))
-    // }
+    const deleteOption = (id) => {
+        axios.delete(`${API}/songs/${id}`)
+        .then(() => navigate(`/songs`))
+        .catch((c) => console.error("catch", c));
+  };
 
-    // const handleEdit = (id) => {
-    //     axios.put(`${API}/songs/${id}`, song)
-    //     .then((res) => {
-    //         SetSong(res.data)
-    //         navigate(`/songs/${id}`)
-    //     })
-    //     .catch((err) => console.log(err))        
-        
-    // }
+    const handleDelete = (e) => {
+      e.preventDefault()
+      deleteOption(id)
+    }
 
   return (
-    <div>
-        <h3>{ song.name }</h3>
+    <div className='details'>
+      <h3>{song.is_favorite ? <span>⭐️</span> : null} {song.name}</h3>
         <h4>{ song.artist }</h4>
-        <h3>{ song.album }</h3>
+        <h4>{ song.album }</h4>
         <p>{ song.time }</p>
-        <p>{ song.is_favorite}</p>
-        <button>Edit Song</button>
-        <button>Delete Song</button>
+        <button onClick={() => navigate("/songs")}>Back</button>
+        <Link to={`/songs/${id}/edit`}><button>Edit Song</button></Link>
+        <button onClick={handleDelete}>Delete Song</button>
     </div>
   )
 }
 
 export default SongDetails
+
+

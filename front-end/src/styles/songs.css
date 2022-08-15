@@ -1,0 +1,13 @@
+.songs{
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
+    background-color: lavenderblush;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    
+}
+.songs-page{
+    text-align: center;
+}

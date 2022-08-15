@@ -26,7 +26,7 @@ songs.get("/:id", async (req, res) => {
   const { id } = req.params;
   const song = await getSong(id);
   if (song) {
-    res.json(song);
+    res.json(song);//changed code here!!!! linev28
   } else {
     res.status(404).json({ error: "not found" });
   }
@@ -53,7 +53,7 @@ songs.delete("/:id", async (req, res) => {
 
 songs.put("/:id", checkArtist, checkName, checkBoolean, async (req, res) => {
   const { id } = req.params;
-  const updatedSong = await updateSong( id, req.body);
+  const updatedSong = await updateSong(req.body, id);
   if (updatedSong.id) {
     console.log("song updated", updatedSong)
     res.status(200).json(updatedSong);
