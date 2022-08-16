@@ -1,0 +1,113 @@
+/** @format */
+* {
+	margin: 0 auto;
+}
+
+nav {
+	background-image: linear-gradient(
+			rgba(0, 0, 255, 0.5),
+			rgba(255, 255, 0, 0.5)
+		),
+		url('./images/pexels-blaz-erzetic-2426085.jpg');
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 170px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+	box-shadow: 2px 2px 4px grey;
+	margin-bottom: 1em;
+}
+
+nav h1 {
+	color: azure;
+}
+
+main {
+	width: 90%;
+	margin: auto;
+}
+
+nav a {
+	text-decoration: none;
+	color: azure;
+}
+
+a {
+	text-decoration: none;
+}
+
+button a {
+	color: #26182e;
+	border-radius: 10px;
+}
+
+h4 {
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+table {
+	width: 50%;
+	margin: auto;
+}
+
+td {
+	text-align: center;
+}
+
+tbody td:not(td:first-of-type):hover {
+	transform: scale(1.05);
+	opacity: 0.9;
+}
+
+tbody tr:nth-child(even) {
+	background: #f4eafd;
+}
+
+.New h2,
+.Show h2,
+.Index h2 {
+	text-align: center;
+}
+
+.New form {
+	margin: auto;
+	width: 95%;
+}
+
+input[type],
+textarea {
+	display: block;
+	width: 90%;
+	margin: auto;
+}
+
+input[type='checkbox'] {
+	margin: 0;
+	width: 15%;
+}
+
+input[type='submit'] {
+	width: 30%;
+}
+
+.showNavigation {
+	display: flex;
+	justify-content: space-around;
+	width: 50%;
+}
+
+.song-show-link {
+	color: rebeccapurple;
+}
+
+.Songs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
