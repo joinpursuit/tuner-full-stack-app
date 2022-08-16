@@ -17,7 +17,6 @@ export const EditSong = ({ API }) => {
     time: "",
     is_favorite: "",
   });
-  const [checked, setChecked] = React.useState(false);
 
   let { id } = useParams();
   useEffect(() => {
@@ -38,6 +37,11 @@ export const EditSong = ({ API }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     editSong();
+  };
+
+  const handleDelete = () => {
+    axios.delete(`${API}/songs/${id}`);
+    navigate("/songs");
   };
 
   const editSong = () => {
@@ -95,6 +99,7 @@ export const EditSong = ({ API }) => {
           onChange={handleFavorite}
         ></Checkbox>
         <Button onClick={handleSubmit}>Edit Song</Button>
+        <Button onClick={handleDelete}>Delete Song</Button>
       </Box>
     </div>
   );
