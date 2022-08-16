@@ -8,6 +8,11 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -21,12 +26,13 @@ export const NewSong = ({ API }) => {
     severity: "",
     body: "",
   });
+
   const [song, makeSong] = React.useState({
     name: "",
     artist: "",
     album: "",
     time: "",
-    is_favorite: "false",
+    is_favorite: false,
   });
 
   const handleClose = (event, reason) => {
@@ -43,6 +49,11 @@ export const NewSong = ({ API }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addSong();
+  };
+
+  const handleFavorite = () => {
+    makeSong({ ...song, is_favorite: !song.is_favorite });
+    console.log(song.is_favorite);
   };
 
   const addSong = () => {
@@ -106,6 +117,18 @@ export const NewSong = ({ API }) => {
           variant="outlined"
           value={song.time}
           onChange={handleChange}
+        />
+         <FormControlLabel
+          control={
+            <Checkbox
+              icon={<FavoriteBorder />}
+              checkedIcon={<Favorite />}
+              id="is_favorite"
+              checked={song.is_favorite}
+              onChange={handleFavorite}
+            ></Checkbox>
+          }
+          label="Favorite"
         />
         <Button onClick={handleSubmit}>Add song</Button>
       </Box>

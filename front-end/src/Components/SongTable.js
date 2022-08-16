@@ -11,7 +11,7 @@ import axios from "axios";
             the type that was last chosen (default : name)
           - Will need different methods for any others I may choose
             to implement
-    - Edit button brings you to do songs individual edit page
+    - Edit button brings you to do songs individual edit page ✓
     - Set Snackbar to show after toggling favorite status ✓
 */
 

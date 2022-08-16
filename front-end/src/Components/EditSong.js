@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+//Mui
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 
 export const EditSong = ({ API }) => {
   const navigate = useNavigate();
@@ -31,8 +34,7 @@ export const EditSong = ({ API }) => {
   };
   const handleFavorite = () => {
     setSong({ ...song, is_favorite: !song.is_favorite });
-    console.log(song.is_favorite);
-  };
+  }; // Thank you Dan and Tim for getting me to un-complicate this and make it to work.
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +52,7 @@ export const EditSong = ({ API }) => {
       .then((res) => {
         setSong(res.data);
       })
+      .then(navigate("/songs"))
       .catch((error) => {
         console.log(error.response.data.error);
       });
@@ -93,11 +96,18 @@ export const EditSong = ({ API }) => {
           value={song.time}
           onChange={handleChange}
         />
-        <Checkbox
-          id="is_favorite"
-          checked={song.is_favorite}
-          onChange={handleFavorite}
-        ></Checkbox>
+        <FormControlLabel
+          control={
+            <Checkbox
+              icon={<FavoriteBorder />}
+              checkedIcon={<Favorite />}
+              id="is_favorite"
+              checked={song.is_favorite}
+              onChange={handleFavorite}
+            ></Checkbox>
+          }
+          label="Favorite"
+        />
         <Button onClick={handleSubmit}>Edit Song</Button>
         <Button onClick={handleDelete}>Delete Song</Button>
       </Box>
