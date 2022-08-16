@@ -75,7 +75,7 @@ export const SongTable = ({ songs }) => {
                   <TableCell>
                     <Button
                       onClick={() => {
-                        const fav = song.is_favorite ? "false" : "true";
+                        const fav = song.is_favorite ? false : true;
                         axios.put(`${API_KEY}/songs/${song.id}`, {
                           name: song.name,
                           artist: song.artist,
@@ -84,7 +84,7 @@ export const SongTable = ({ songs }) => {
                           is_favorite: fav,
                         });
                         //This part took shamefully way too long to get. It kept displaying the wrong alert type
-                        fav === "true"
+                        fav === true
                           ? setAlertHeaders({
                               severity: "success",
                               body: "Song added to favorites",
