@@ -1,13 +1,21 @@
-import React from 'react'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-export default function Nav() {
-
+const NavBar = () => {
   return (
-    <div> 
-       <h1> <Link to="/" className="link">My Songs Page</Link><br/></h1>
-        <Link to="/songs" className="link">Songs</Link>
-        <Link to="/songs/new" className="link">Add a Song</Link>
+    <div>
+      <Navbar className="color-nav" variant="dark">
+        <Container>
+          <Navbar.Brand href="/"><h1>Tuner App</h1></Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link  href="/songs"><h3>Songs</h3></Nav.Link>
+            <Nav.Link  href="/songs/new"><h3>New Song</h3></Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
     </div>
   );
-}
+};
+
+export default NavBar;

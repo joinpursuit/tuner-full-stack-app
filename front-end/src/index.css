@@ -1,6 +1,43 @@
 
-.table{
-  color-scheme: ;
+
+body {
+	background: linear-gradient(-45deg,  rgb(128, 128, 128), yellow, orange, rgb(0, 0, 0) );
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+ 
+ 
+ th{
+  color: #ffffff;
+}
+
+td{
+  color: white;
+  text-decoration: none;
+}
+.comp  {
+  margin: 0 2%;
+}
+.Edit  {
+  margin: 5% 20%;
+}
+
+.color-nav{
+  background-color:orange;
 }
 
 .link {
@@ -28,3 +65,5 @@
   .link{
     text-decoration: none;
   }
+
+  

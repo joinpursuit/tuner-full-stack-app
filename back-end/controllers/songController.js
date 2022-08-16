@@ -41,7 +41,7 @@ songs.post("/", checkName, checkArtist, checkBoolean, async  (req, res)=> {
     if (deletedSong.id){
       res.status(200).json(deletedSong)
     }else{
-      res.status(404).json("nothing here")
+      res.status(404).json({error:"nothing here"})
     }
   })
 
