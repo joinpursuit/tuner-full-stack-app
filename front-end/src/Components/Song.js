@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -13,7 +14,9 @@ export default function Song({ song }) {
         )}
       </td>
       <td class="Song">
-        <p>{song.name}</p>
+      <Link to={`/songs/${song.id}`}> <a href={song.id}>
+          {song.name}
+        </a> </Link>
       </td>
       <td class="Songs">
         <p>{song.artist}</p>
