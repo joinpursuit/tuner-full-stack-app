@@ -58,7 +58,7 @@ Your page should
 
 - button for `edit` - which takes the user to the edit form for this song
 
-<details><summary>Inspiration</summary>
+<details> <summary>Inspiration</summary>
 
 ![](./assets/show.png)
 
